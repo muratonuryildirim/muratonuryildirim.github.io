@@ -27,7 +27,7 @@ aside img {
     margin-bottom: 15px;
 }
 
-aside h2 {
+aside h3 {
     margin-top: 0;
     margin-bottom: 10px;
 }
@@ -68,7 +68,7 @@ li {
   }
 
 main {
-    margin-left: 25%; /* Adjust based on the width of the sidebar */
-    padding: 5%; /* Optional: Add padding to the main content for better readability */
+    margin-left: 30%; /* Adjust based on the width of the sidebar */
+    padding: 2%; /* Optional: Add padding to the main content for better readability */
 }
 
