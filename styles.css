@@ -69,6 +69,6 @@ li {
 
 main {
     margin-left: 15%; /* Adjust based on the width of the sidebar */
-    padding: 15%; /* Optional: Add padding to the main content for better readability */
+    padding: 2% 15% 2% 15%; /* Optional: Add padding to the main content for better readability */
 }
 
