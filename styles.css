@@ -1,0 +1,82 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+}
+
+aside {
+    width: 200px;
+    position: fixed;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+aside img {
+    border-radius: 50%;
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+aside h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+aside p.description {
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+}
+
+.social-links li {
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.body-links a {
+    color: blue;
+    text-decoration: none;
+}
+
+ol {
+  list-style-type: none; /* Remove the default numbering for ordered lists */
+  margin: 0;
+  padding: 0;
+}
+
+li {
+    margin-bottom: 10px; /* Add margin between list items */
+  }
+
+main {
+    margin-left: 240px; /* Adjust based on the width of the sidebar */
+    padding: 20px; /* Optional: Add padding to the main content for better readability */
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+}
