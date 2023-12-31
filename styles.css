@@ -10,7 +10,7 @@ body {
 }
 
 aside {
-    width: 200px;
+    width: 20%;
     position: fixed;
     height: 100%;
     background-color: #333;
@@ -22,7 +22,7 @@ aside {
 
 aside img {
     border-radius: 50%;
-    max-width: 80%;
+    max-width: 85%;
     height: auto;
     margin-bottom: 15px;
 }
@@ -58,51 +58,17 @@ aside p.description {
 }
 
 ol {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  list-style-type: none; /* Remove the default numbering for ordered lists */
+  margin: 0;
+  padding: 0;
 }
 
 li {
-    margin-bottom: 10px;
-}
+    margin-bottom: 10px; /* Add margin between list items */
+  }
 
 main {
-    margin-left: 240px;
-    padding: 20px;
+    margin-left: 25%; /* Adjust based on the width of the sidebar */
+    padding: 5%; /* Optional: Add padding to the main content for better readability */
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: left;
-    padding: 1em;
-    position: fixed;
-    bottom: 0;
-}
-
-/* Responsive styles for screens with a maximum width of 600 pixels (typical for mobile devices) */
-@media only screen and (max-width: 600px) {
-    aside {
-        width: 100%;
-        position: static;
-        height: auto;
-        padding: 10px;
-        text-align: left;
-    }
-
-    aside img {
-        max-width: 100%;
-        margin-bottom: 10px;
-    }
-
-    main {
-        margin-left: 0;
-        padding: 10px;
-    }
-
-    footer {
-        position: static;
-        bottom: auto;
-    }
-}
