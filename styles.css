@@ -10,7 +10,7 @@ body {
 }
 
 aside {
-    width: 20%;
+    width: 15%;
     position: fixed;
     height: 100%;
     background-color: #333;
@@ -68,7 +68,7 @@ li {
   }
 
 main {
-    margin-left: 30%; /* Adjust based on the width of the sidebar */
-    padding: 2%; /* Optional: Add padding to the main content for better readability */
+    margin-left: 15%; /* Adjust based on the width of the sidebar */
+    padding: 15%; /* Optional: Add padding to the main content for better readability */
 }
 
