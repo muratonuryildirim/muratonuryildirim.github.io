@@ -7,48 +7,46 @@ body {
 
 .container {
     display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
 }
 
 aside {
-    width: 200px;
-    position: fixed;
-    height: 100%;
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    width: 100%; /* Take full width on small screens */
+    position: static; /* Remove fixed position on small screens */
+    box-shadow: none; /* Remove box shadow on small screens */
+    text-align: center; /* Center text on small screens */
 }
 
 aside img {
     border-radius: 50%;
-    max-width: 80%;
+    max-width: 100%;
     height: auto;
-    margin-bottom: 15px;
+    margin: 0 auto 15px; /* Center the image and add margin for spacing */
 }
 
 aside h2 {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* Adjust margin for spacing */
 }
 
 aside p.description {
     font-style: italic;
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 15px; /* Adjust margin for spacing */
 }
 
 .social-links {
     list-style: none;
     padding: 0;
+    margin-bottom: 15px; /* Adjust margin for spacing */
 }
 
 .social-links li {
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* Adjust margin for spacing */
 }
 
 .social-links a {
-    color: #fff;
+    color: #000080; /* Dark blue color */
     text-decoration: none;
 }
 
@@ -68,15 +66,24 @@ li {
   }
 
 main {
-    margin-left: 240px; /* Adjust based on the width of the sidebar */
-    padding: 20px; /* Optional: Add padding to the main content for better readability */
+    width: 100%; /* Take full width on small screens */
+    margin-left: 0; /* Remove margin on small screens */
+    padding: 15px; /* Adjust padding for spacing */
 }
 
 footer {
     background-color: #333;
     color: #fff;
-    text-align: left;
+    text-align: center;
     padding: 1em;
-    position: fixed;
-    bottom: 0;
+    position: static; /* Remove fixed position on small screens */
+    width: 100%;
 }
+
+/* Media query for screens smaller than 480px (typical smartphones) */
+@media (max-width: 480px) {
+    aside img {
+        max-width: 100%; /* Make sure images don't overflow on small screens */
+    }
+}
+
