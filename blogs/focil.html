@@ -8,6 +8,46 @@
 
 </head>
 
+<style>
+
+.image-wrap {
+    float: left;
+    margin: 1rem 2rem 1rem 0;
+    width: 35rem; /* Adjust this width as needed */
+}
+
+.image-wrap img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+.image-wrap figcaption {
+    text-align: justify;
+    font-size: 0.7rem;
+    color: #555;
+    margin-top: 0.1rem;
+}
+
+figure {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+img {
+    max-width: 88%;
+    height: auto;
+    border-radius: 0.5rem;
+}     
+
+figcaption {
+        margin-top: 0.1rem;
+        font-size: 0.7rem;
+        color: #555;
+}
+
+</style>
+
 <body>
     <div class="container">
 
@@ -16,9 +56,9 @@
             <h3>Murat Onur Yildirim</h3>
             <p class="description">PhD Candidate in AI</p>
             <ul class="social-links">
-                <li><a href="../index.html" class="active">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="../index.html#publications">Publications</a></li>
-                <li><a href="../index.html#blog-posts">Blogs</a></li>
+                <li><a href="../index.html#blog-posts" class="active">Blogs</a></li>
                 <li> - </li>
                 <li><a href="https://linkedin.com/in/muratonuryildirim" target="_blank">LinkedIn</a></li>
                 <li><a href="https://github.com/muratonuryildirim" target="_blank">GitHub</a></li>
@@ -33,7 +73,6 @@
                 <i>Murat Onur Yildirim, Elif Ceren Gok Yildirim, Decebal Constantin Mocanu, Joaquin Vanschoren</i>
                 <p></p>
             </header>
-
             <section class="blog-post">
 
                 <div class="post-content">
@@ -57,32 +96,49 @@
                     That’s the dream, right? 
                    </p>
                     
-                    <h2>Introducing FOCIL: The Game Changer</h2>
+
+                   <figure class="image-wrap">
+                    <img src="../imgs/focil.webp" alt="Description of the image">
+                    <figcaption>FOCIL selects connections randomly from a big super-smart network at the beginning of each task, called expert. 
+                        Then it trains and freezes the expert at the end of task to prevent forgetting. 
+                        However, it allows using the frozen parameters in the subsequent tasks to facilitate knowledge transfer between the experts. 
+                        During inference, FOCIL applies a forward pass and selects the most confident expert for the classification.</figcaption>
+                    </figure>
+
+
+                    <h2>FOCIL: Makes The Dreams Come True</h2>
                     <p>FOCIL stands for Finetune-and-Freeze for Online Class-Incremental Learning by Training Randomly Pruned Sparse Experts.<br>
                     Quite a mouthful, but don’t worry, it’s simpler than it sounds! Here’s how it works:</p>
                     
-                    <ul>
+                    <ol>
                       <li><strong>Smart Pruning:</strong> Imagine you have a one big super-smart network.
                         When it’s time to learn something new, FOCIL trims down parts of this network to create a smaller, focused "expert" network just for that task.</li>
                       <li><strong>Expert Training:</strong> This smaller expert network gets trained on the new information.</li>
                       <li><strong>Freeze and Forget Not:</strong> Once the expert is trained, it gets "frozen". 
                         This means it keeps its knowledge intact and won’t get confused while learning something new next time.</li>
                       <li><strong>Adapt and Thrive:</strong> FOCIL also tweaks how much it trims and how fast it learns based on what’s needed, making sure it’s always on point.</li>
-                    </ul>
+                    </ol>
+
+                    <br>
                     
                     <h2>Why Should You Care?</h2>
                     <p>FOCIL is pretty awesome for a few reasons:</p>
                     
-                    <ul>
+                    <ol>
                       <li><strong>No More Forgetting:</strong> Just like a good student who never forgets a lesson, FOCIL ensures the network remembers everything it learns without needing to review old information.</li>
                       <li><strong>Faster and Leaner:</strong> Because it doesn’t need to keep all the old data around, FOCIL is quicker and uses less memory. That’s a win for efficiency!</li>
                       <li><strong>Privacy Matters:</strong> It’s a much better solution for privacy issues. No more worries about where all that old data is going.</li>
-                    </ul>
-                    
-                    <h2>Proven and Tested</h2>
-                    <p>FOCIL has been put through its paces with various tests on popular datasets like CIFAR10, CIFAR100, TinyImageNet, and ImageNet.<br>
-                    And guess what? It’s come out on top, outperforming other methods by a long shot. For example, in one test with 100 different tasks, FOCIL performed 4 times better than the best methods out there!</p>
-                    
+                      <li><strong>Proven and Tested:</strong> It has been put through its paces with various tests on popular datasets like CIFAR10, CIFAR100, TinyImageNet, and ImageNet.
+                        And guess what? It’s come out on top, outperforming other methods by a long shot. For example, in one test with 100 different tasks, FOCIL performed 4 times better than the best methods out there!</p>
+                    </ol>
+
+                    <figure>
+                        <img src="../imgs/focil_results.webp" alt="Description of the image">
+                        <figcaption>FOCIL selects different hyperparameters for each task adaptively (Figure 1), 
+                            outperforms all the existing method at any time step (Figure 2), 
+                            and trains more efficiently while returning the highest performance (Figure 3).</figcaption>
+                    </figure>
+
                     <h2>Wrapping It Up</h2>
                     <p>FOCIL is a big step forward in making AI more capable of adapting to new information seamlessly.
                     It is setting a new standard for how AI can learn continuously and effectively 
