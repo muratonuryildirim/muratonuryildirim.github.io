@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murat Onur Yildirim - FOCIL</title>
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+<style>
+    main header {
+        margin-bottom: 2rem;
+    }
+
+    figure{
+        max-width: 100%;
+    }
+
+    figcaption{
+        font-size: 0.75rem;
+    }
+
+    img{
+        max-width: 100%;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+        
+    }
+
+
+    @media (max-width: 768px) {
+ 
+    .image-wrap {
+        float: none;
+        max-width: 100%;
+        margin: 1rem 0 1rem 0;
+        }
+    }
+
+    @media (max-width: 480px) {
+        main h1 {
+            font-size: 1.5rem;
+            line-height: 1.75rem;
+        }
+
+        main i {
+            font-size: 0.9rem;
+        }
+
+        .image-wrap figcaption, figcaption {
+            font-size: 0.77rem;
+        }
+
+    }
+</style>
+
+<body>
+    <div class="container">
+
+        <aside>
+            <img src="../imgs/profile.webp" alt="Murat Onur Yildirim's Profile Picture">
+            <h3>Murat Onur Yildirim</h3>
+            <p class="description">PhD Candidate in AI</p>
+            <ul class="social-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#publications">Publications</a></li>
+                <li><a href="../index.html#blog-posts" class="active">Blogs</a></li>
+                <li> - </li>
+                <li><a href="https://linkedin.com/in/muratonuryildirim" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/muratonuryildirim" target="_blank">GitHub</a></li>
+                <li><a href="https://scholar.google.com/citations?user=3NAjgx0AAAAJ&hl=en" target="_blank">Scholar</a></li>
+                <li><a href="https://twitter.com/monuryildirim" target="_blank">X</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <header id="header">
+                <h1>Meet FOCIL, A Cool New Way for AI to Learn and Remember</h1>
+                <i>Murat Onur Yildirim, Elif Ceren Gok Yildirim, Decebal Constantin Mocanu, Joaquin Vanschoren</i>
+
+            </header>
+            <section>
+               
+                    <p>Hey there! Today, we’re diving into something pretty exciting in the world of artificial intelligence.<br>
+                    Imagine if our AI systems could learn new things all the time, just like we do, without forgetting what they learned before.<br> 
+                    Sounds amazing, right? Well, let me introduce you our new work FOCIL, a fantastic new method that's making this a reality!
+                    </p>
+                    
+                    <h2>What’s the Big Deal with Online Class-Incremental Learning?</h2>
+                    <p>So, let’s start with the basics. 
+                    Usually, when AI learns, it needs to keep looking back at old data to make sure it doesn’t forget what it already knows. 
+                    This is kind of like cramming for a test by constantly flipping back through your notes. 
+                    But this way of learning can be a bit of a pain.</p>
+                    
+                    <p>This is where "online class-incremental learning" comes in. 
+                    It’s a way for AI to keep learning new things as they come along.
+                    However, most of the current online CIL models stores some amount of data to avoid forgetting, just like you constantly flipping back through your notes: 
+                    it’s slow, uses a lot of memory, and isn’t great for privacy.
+                    Now, imagine if the AI could just look at each piece of information once and remember it perfectly without needing to hold on to the old data. 
+                    That’s the dream, right? 
+                   </p>
+                
+                
+            
+                   <figure>
+                    <img src="../imgs/focil.webp" alt="Description of the image">
+                    <figcaption>FOCIL selects connections randomly from a big super-smart network at the beginning of each task, called expert. 
+                        Then it trains and freezes the expert at the end of task to prevent forgetting. 
+                        However, it allows using the frozen parameters in the subsequent tasks to facilitate knowledge transfer between the experts. 
+                        During inference, FOCIL applies a forward pass and selects the most confident expert for the classification.</figcaption>
+                    </figure>
+
+                    <h2>FOCIL: Makes The Dreams Come True</h2>
+                    <p>FOCIL stands for Finetune-and-Freeze for Online Class-Incremental Learning by Training Randomly Pruned Sparse Experts.<br>
+                    Quite a mouthful, but don’t worry, it’s simpler than it sounds! Here’s how it works:</p>
+                    
+                    <ol>
+                      <li><strong>Smart Pruning:</strong> Imagine you have a one big super-smart network.
+                        When it’s time to learn something new, FOCIL trims down parts of this network to create a smaller, focused "expert" network just for that task.</li>
+                      <li><strong>Expert Training:</strong> This smaller expert network gets trained on the new information.</li>
+                      <li><strong>Freeze and Forget Not:</strong> Once the expert is trained, it gets "frozen". 
+                        This means it keeps its knowledge intact and won’t get confused while learning something new next time.</li>
+                      <li><strong>Adapt and Thrive:</strong> FOCIL also tweaks how much it trims and how fast it learns based on what’s needed, making sure it’s always on point.</li>
+                    </ol>
+
+                
+                    <h2>Why Should You Care?</h2>
+                    <p>FOCIL is pretty awesome for a few reasons:</p>
+                    
+                    <ol>
+                      <li><strong>No More Forgetting:</strong> Just like a good student who never forgets a lesson, FOCIL ensures the network remembers everything it learns without needing to review old information.</li>
+                      <li><strong>Faster and Leaner:</strong> Because it doesn’t need to keep all the old data around, FOCIL is quicker and uses less memory. That’s a win for efficiency!</li>
+                      <li><strong>Privacy Matters:</strong> It’s a much better solution for privacy issues. No more worries about where all that old data is going.</li>
+                      <li><strong>Proven and Tested:</strong> It has been put through its paces with various tests on popular datasets like CIFAR10, CIFAR100, TinyImageNet, and ImageNet.
+                        And guess what? It’s come out on top, outperforming other methods by a long shot. For example, in one test with 100 different tasks, FOCIL performed 4 times better than the best methods out there!</p>
+                    </ol>
+
+                    <figure>
+                        <img src="../imgs/focil_results.png" alt="Description of the image">
+                        <figcaption>FOCIL selects different hyperparameters for each task adaptively (Figure 1), 
+                            outperforms all the existing method at any time step (Figure 2), 
+                            and trains more efficiently while returning the highest performance (Figure 3).</figcaption>
+                    </figure>
+                
+
+                    <h2>Wrapping It Up</h2>
+                    <p>FOCIL is a big step forward in making AI more capable of adapting to new information seamlessly.
+                    It is setting a new standard for how AI can learn continuously and effectively 
+                    by giving an ability to learn new things without forgetting the old, 
+                    while all being super-efficient and privacy-friendly.</p>
+                    
+                    <p>If you’re as excited about FOCIL as we are, you can dive deeper and check out the <a href="https://arxiv.org/abs/2403.14684">paper</a> and the <a href="https://github.com/muratonuryildirim/FOCIL">code</a>.</p>
+                    
+                    <p>Stay tuned for more cool innovations in the world of AI!</p>
+                    
+            </section>
+
+            <!-- Add more content as needed -->
+
+        </main>
+
+    </div>
+
+</body>
+</html>
