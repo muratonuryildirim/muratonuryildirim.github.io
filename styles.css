@@ -79,7 +79,7 @@ aside ul li a.active {
 
 main {
     flex-grow: 1;
-    padding: 3rem;
+    padding: 5%;
 }
 
 ol {
@@ -195,6 +195,11 @@ a:hover {
 
 /* Responsive styles */
 @media (max-width: 768px) {
+
+    main {
+        font-size: 0.75rem;
+    }
+
     aside {
         width: 100%;
         text-align: center;

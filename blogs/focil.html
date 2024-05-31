@@ -5,48 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Murat Onur Yildirim - FOCIL</title>
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="./blog-styles.css">
 
 </head>
-
-<style>
-
-.image-wrap {
-    float: left;
-    margin: 1rem 2rem 1rem 0;
-    width: 35rem; /* Adjust this width as needed */
-}
-
-.image-wrap img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 0.5rem;
-}
-
-.image-wrap figcaption {
-    text-align: justify;
-    font-size: 0.7rem;
-    color: #555;
-    margin-top: 0.1rem;
-}
-
-figure {
-    margin-top: 1rem;
-    text-align: center;
-}
-
-img {
-    max-width: 88%;
-    height: auto;
-    border-radius: 0.5rem;
-}     
-
-figcaption {
-        margin-top: 0.1rem;
-        font-size: 0.7rem;
-        color: #555;
-}
-
-</style>
 
 <body>
     <div class="container">
@@ -67,18 +28,16 @@ figcaption {
             </ul>
         </aside>
 
-        <main>
-            <header id="header">
+        <main id="main">
+            <header>
                 <h1>Meet FOCIL, A Cool New Way for AI to Learn and Remember</h1>
                 <i>Murat Onur Yildirim, Elif Ceren Gok Yildirim, Decebal Constantin Mocanu, Joaquin Vanschoren</i>
-                <p></p>
+
             </header>
-            <section class="blog-post">
-
-                <div class="post-content">
-
-                    <p>Hey there! Today, we’re diving into something pretty exciting in the world of artificial intelligence.<br>
-                    Imagine if our AI systems could learn new things all the time, just like we do, without forgetting what they learned before.<br> 
+            <section>
+               
+                    <p>Hey there! Today, we’re diving into something pretty exciting in the world of artificial intelligence.
+                    Imagine if our AI systems could learn new things all the time, just like we do, without forgetting what they learned before.
                     Sounds amazing, right? Well, let me introduce you our new work FOCIL, a fantastic new method that's making this a reality!
                     </p>
                     
@@ -95,16 +54,14 @@ figcaption {
                     Now, imagine if the AI could just look at each piece of information once and remember it perfectly without needing to hold on to the old data. 
                     That’s the dream, right? 
                    </p>
-                    
-
-                   <figure class="image-wrap">
-                    <img src="../imgs/focil.webp" alt="Description of the image">
+                
+                   <figure>
+                    <img src="../imgs/focil.webp" alt="Description of the image" class="center">
                     <figcaption>FOCIL selects connections randomly from a big super-smart network at the beginning of each task, called expert. 
                         Then it trains and freezes the expert at the end of task to prevent forgetting. 
                         However, it allows using the frozen parameters in the subsequent tasks to facilitate knowledge transfer between the experts. 
                         During inference, FOCIL applies a forward pass and selects the most confident expert for the classification.</figcaption>
                     </figure>
-
 
                     <h2>FOCIL: Makes The Dreams Come True</h2>
                     <p>FOCIL stands for Finetune-and-Freeze for Online Class-Incremental Learning by Training Randomly Pruned Sparse Experts.<br>
@@ -119,8 +76,7 @@ figcaption {
                       <li><strong>Adapt and Thrive:</strong> FOCIL also tweaks how much it trims and how fast it learns based on what’s needed, making sure it’s always on point.</li>
                     </ol>
 
-                    <br>
-                    
+                
                     <h2>Why Should You Care?</h2>
                     <p>FOCIL is pretty awesome for a few reasons:</p>
                     
@@ -138,6 +94,7 @@ figcaption {
                             outperforms all the existing method at any time step (Figure 2), 
                             and trains more efficiently while returning the highest performance (Figure 3).</figcaption>
                     </figure>
+                
 
                     <h2>Wrapping It Up</h2>
                     <p>FOCIL is a big step forward in making AI more capable of adapting to new information seamlessly.
@@ -149,7 +106,6 @@ figcaption {
                     
                     <p>Stay tuned for more cool innovations in the world of AI!</p>
                     
-                </div>
             </section>
 
             <!-- Add more content as needed -->
