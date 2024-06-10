@@ -7,6 +7,11 @@ main i {
         font-size: 0.9rem;
     }
 
+ol i {
+        font-size: 0.93rem;
+    }
+
+
 figure{
     max-width: 100%;
     display: block;

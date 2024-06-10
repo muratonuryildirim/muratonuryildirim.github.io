@@ -220,12 +220,12 @@ a:hover {
         align-items: center;
     }
 
-    .blog-item, .publication-item.show {
+    .blog-item.show, .publication-item.show {
         flex-direction: column;
         text-align: left;
     }
 
-    .blog-item img, .publication-item.show img {
+    .blog-item.show img, .publication-item.show img {
         max-width: 75%;
         margin: 0 auto 1rem;
     }
@@ -238,7 +238,11 @@ a:hover {
 }
 
 @media (max-width: 480px) {
-    .blog-item img, .publication-item.show img {
+    .blog-item.show img {
+        max-width: 60%;
+    }
+
+    .publication-item.show img {
         max-width: 75%;
     }
 }

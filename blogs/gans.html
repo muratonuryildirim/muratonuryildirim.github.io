@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murat Onur Yildirim - FOCIL</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="./blog-styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <div class="container">
+
+    <aside>
+      <img src="../imgs/profile.webp" alt="Murat Onur Yildirim's Profile Picture">
+      <h3>Murat Onur Yildirim</h3>
+      <p class="description">PhD Candidate in AI</p>
+      <ul class="social-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#publications">Publications</a></li>
+        <li><a href="../index.html#blog-posts" class="active">Blogs</a></li>
+        <li> - </li>
+        <li><a href="https://linkedin.com/in/muratonuryildirim" target="_blank">LinkedIn</a></li>
+        <li><a href="https://github.com/muratonuryildirim" target="_blank">GitHub</a></li>
+        <li><a href="https://scholar.google.com/citations?user=3NAjgx0AAAAJ&hl=en" target="_blank">Scholar</a></li>
+        <li><a href="https://twitter.com/monuryildirim" target="_blank">X</a></li>
+      </ul>
+    </aside>
+
+    <main id="main">
+      <header>
+        <h1>Unveiling the Magic of Generative Adversarial Networks (GANs)</h1>
+      </header>
+        
+      <section>
+        <p>Welcome to the fascinating world of Generative Adversarial Networks, or GANs for short! 
+        Since their introduction by Ian Goodfellow and his team in 2014, GANs have been making waves in the AI community. 
+        From creating stunningly realistic images to enhancing photo quality, GANs are doing some pretty magical things. 
+        But what exactly are they, and how do they work? Let’s dive in and find out!</p>
+            
+        <h2>What are GANs?</h2>
+        <ol>
+          <li>Imagine you have two artists. One is trying to create fake masterpieces, and the other is trying to spot the fakes. 
+          This is essentially how GANs work, except our artists are neural networks.</li>
+          <li><strong>Generator (G)</strong>: This is our creative artist. It starts with a bunch of random noise and tries to turn it into something that looks real, like an image of a cat or a sunset.</li>
+          <li><strong>Discriminator (D)</strong>: This is our critic. It examines images and tries to figure out if they’re real (from a real dataset) or fake (created by the generator).</li>
+        </ol>
+            
+        <h2>How GANs Work</h2>
+        <ol>
+          <li>The magic happens through a back-and-forth game between these two networks that start with random skills (weights):</li>
+          <li><strong>Training the Critic</strong>: We show the discriminator some real images and some fakes. It tries to correctly identify which is which and gets better at spotting the fakes.</li>
+          <li><strong>Training the Artist</strong>: We give feedback from the discriminator to the generator. The generator tries to create better fakes that can fool the discriminator.</li>
+          <li>This process goes on, with both the generator and discriminator improving their skills over time. 
+          The generator learns to create more realistic images, while the discriminator gets better at spotting the fakes.</li>
+        </ol>
+
+        <figure>
+          <img src="../imgs/gan.jpg" alt="Description of the image" class="center" style="width: 50rem;">
+        </figure>
+            
+        <h2>The Math Behind the Magic</h2>
+        <ol>
+          <li>If you like math, here’s a peek under the hood. 
+          The interaction between the generator and discriminator is like a game where each is trying to outsmart the other. 
+          This is described by the following equation.</li>
+
+          <li> \[ \min_G \max_D V(D, G) = \mathbb{E}_{x \sim p_{\text{data}}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))] \] </li>
+
+          <li>Don’t worry if this looks complex! Let’s break it down:</li>
+          <li><strong>Discriminator’s Goal</strong>: The discriminator tries to maximize its ability to tell real images from fake ones. It does this by maximizing the term \( \mathbb{E}_{x \sim p_{\text{data}}(x)}[\log D(x)] \), which represents the expected value over all real data samples. This term is maximized when \( D(x) \) (the discriminator’s output for real data) is close to 1 (high probability that the data is real).</li>
+          <li>At the same time, the discriminator also tries to minimize the term \( \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))] \), which represents the expected value over all fake data samples. This term is minimized when \( D(G(z)) \) (the discriminator’s output for fake data) is close to 0 (high probability that the data is fake).</li>
+          <li><strong>Generator’s Goal</strong>: The generator, on the other hand, tries to fool the discriminator. It does this by maximizing the term \( \mathbb{E}_{z \sim p_z(z)}[\log D(G(z))] \), which is not directly shown in the above equation but is implied when we consider the generator’s perspective. The generator wants \( D(G(z)) \) to be close to 1 (high probability that the fake data is classified as real).</li>
+          <li>In simpler terms, the discriminator wants to get better at distinguishing real from fake images, while the generator wants to get better at creating images that the discriminator can’t distinguish from real ones. The two networks push each other to improve, like two competitors in a game.</li>
+        </ol>
+
+        <h2>The Role of Nash Equilibrium</h2>
+        <ol>
+          <li>Here’s a cool concept from game theory: Nash Equilibrium. 
+          It’s a state where neither the generator nor the discriminator can improve their game without the other catching up. 
+          In other words, it’s a perfect balance where the generator’s fakes are good enough that the discriminator can’t tell them apart from real images, 
+          and both networks are doing their best given the other’s strategy.</li>
+        </ol>
+
+        <h2>Challenges in Training GANs</h2>
+        <ol>
+          <li>Training GANs can be tricky and sometimes feels like a delicate dance:</li>
+          <li><strong>Mode Collapse</strong>: The generator might get stuck creating the same type of image over and over, ignoring other possibilities.</li>
+          <li><strong>Vanishing Gradients</strong>: If the discriminator gets too good, the generator might struggle to learn because the feedback it receives becomes too small to make meaningful improvements.</li>
+          <li><strong>Training Instability</strong>: The adversarial game can sometimes lead to wild swings in performance, making the training process unstable.</li>
+          <li>To tackle these challenges, researchers have come up with some clever solutions.</li>
+        </ol>
+
+          <figure>
+            <img src="../imgs/dcgan.png" alt="Description of the image" class="center" style="width: 40rem;">
+          </figure>
+              
+        <h2>Deep Convolutional GANs (DCGANs)</h2>
+        <ol>
+          <li><strong>What are they?</strong> DCGANs use deep convolutional neural networks (CNNs) for both the generator and the discriminator.</li>
+          <li><strong>How do they work?</strong> Convolutional layers are excellent at capturing spatial hierarchies in images. In DCGANs, the generator uses transposed convolutions to upsample random noise into images, while the discriminator uses standard convolutions to classify images as real or fake.</li>
+          <li><strong>Benefits</strong>: This architecture improves the quality of generated images significantly. The generator can produce more detailed and realistic images, while the discriminator gets better at distinguishing real from fake images.</li>
+          <li><strong>Loss Function</strong>: The loss functions in DCGANs are the same as in traditional GANs:
+
+          <li> \[ \mathcal{L}_D = - \mathbb{E}_{x \sim p_{\text{data}}(x)}[\log D(x)] - \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))] \] </li>
+          
+          <li><strong>Term 1</strong>: \(- \mathbb{E}_{x \sim p_{\text{data}}(x)}[\log D(x)] \) is maximized when the discriminator correctly identifies real images as real. \(D(x)\) should be close to 1 for real images.</li>
+          <li><strong>Term 2</strong>: \(- \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))] \) is minimized when the discriminator correctly identifies fake images as fake. \(D(G(z))\) should be close to 0 for fake images.</li>
+                
+          <li> \[ \mathcal{L}_G = - \mathbb{E}_{z \sim p_z(z)}[\log D(G(z))] \] </li>
+                
+          <li>This term is minimized when the generator successfully fools the discriminator into believing that fake images are real. \(D(G(z))\) should be close to 1 for fake images.</li>
+        </ol>
+
+        <figure>
+          <img src="../imgs/wgan.png" alt="Description of the image" class="center">
+        </figure>
+            
+        <h2>Wasserstein GANs (WGANs)</h2>
+        <ol>
+          <li><strong>What are they?</strong> WGANs modify the loss function of GANs to use the Wasserstein distance (Earth Mover's distance) instead of the standard binary cross-entropy loss.</li>
+          <li><strong>How do they work?</strong> The Wasserstein distance provides a smoother and more meaningful gradient, which helps stabilize the training process. WGANs also enforce a Lipschitz constraint by clipping the weights of the discriminator.</li>
+          <li><strong>Benefits</strong>: WGANs address issues like mode collapse and provide more stable and reliable training, leading to higher quality generated images.</li>
+          <li><strong>Loss Function</strong>: The WGAN loss function is based on the Wasserstein distance.
+
+          <li>\[ \mathcal{L}_D = -\mathbb{E}_{x \sim p_{\text{data}}(x)}[D(x)] - \mathbb{E}_{z \sim p_z(z)}[D(G(z))] \]</li>
+                
+          <li><strong>Term 1</strong>: \( -\mathbb{E}_{x \sim p_{\text{data}}(x)}[D(x)] \) is minimized when the discriminator assigns a high score to real images.</li>
+          <li><strong>Term 2</strong>: \( - \mathbb{E}_{z \sim p_z(z)}[D(G(z))] \) is minimized when the discriminator assigns a low score to fake images.</li>
+                
+          <li>\[ \mathcal{L}_G = - \mathbb{E}_{z \sim p_z(z)}[D(G(z))] \]</li>
+
+          <li>This term is minimized when the generator produces fake images that the discriminator rates as high-quality (assigning them high scores).</li>
+        </ol>
+        
+        <figure>
+          <img src="../imgs/cgan.png" alt="Description of the image" class="center" style="width: 45rem;">
+        </figure>
+        
+        <h2>Conditional GANs (CGANs)</h2>
+        <ol>
+          <li><strong>What are they?</strong> CGANs incorporate additional information (like class labels) into the generation process.</li>
+          <li><strong>How do they work?</strong> Both the generator and the discriminator receive this extra information. For instance, if you want to generate images of cats, you provide the label "cat" to both networks. The generator then produces images of cats, and the discriminator learns to differentiate between real and fake cat images.</li>
+          <li><strong>Benefits</strong>: This approach allows for more control over the generated images. You can direct the GAN to create specific types of images, making CGANs useful for tasks where you need targeted generation.</li>
+          <li><strong>Loss Function</strong>: The loss functions for CGANs extend the traditional GAN losses to include the conditioning information ground truth label \(y\).
+
+          <li>\[ \mathcal{L}_D = - \mathbb{E}_{x, y \sim p_{\text{data}}(x, y)}[\log D(x|y)] - \mathbb{E}_{z \sim p_z(z), y \sim p_{\text{data}}(y)}[\log(1 - D(G(z|y)))] \]</li>
+                
+          <li><strong>Term 1</strong>: \(- \mathbb{E}_{x, y \sim p_{\text{data}}(x, y)}[\log D(x|y)] \) is maximized when the discriminator correctly identifies real images conditioned on y as real.  \( D(x|y) \) should be close to 1 for real images conditioned on \( y \).</li>
+          <li><strong>Term 2</strong>: \(- \mathbb{E}_{z \sim p_z(z), y \sim p_{\text{data}}(y)}[\log(1 - D(G(z|y)))] \) is minimized when the discriminator correctly identifies fake images conditioned on y as fake.  \( D(G(z|y)) \) should be close to 0 for fake images conditioned on \( y \).</li>
+                
+          <li>\[ \mathcal{L}_G = - \mathbb{E}_{z \sim p_z(z), y \sim p_{\text{data}}(y)}[\log D(G(z|y))] \]</li>
+                
+          <li>This term is minimized when the generator successfully fools the discriminator into believing that fake images conditioned on y are real.  \( D(G(z|y)) \)  should be close to 1 for fake images conditioned on \( y \).</li>
+        </ol>
+
+        <figure>
+          <img src="../imgs/progan.png" alt="Description of the image" class="center" style="width: 35rem;">
+        </figure>
+            
+        <h2>Progressive Growing of GANs (ProGANs)</h2>
+        <ol>
+          <li><strong>What are they?</strong> ProGANs train GANs by gradually increasing the resolution of the generated images.</li>
+          <li><strong>How do they work?</strong> Training starts with low-resolution images, and layers are progressively added to both the generator and the discriminator to increase the resolution step-by-step. This incremental approach helps in stabilizing the training process.</li>
+          <li><strong>Benefits</strong>: ProGANs produce high-resolution images with finer details and help overcome training instability. The gradual growth allows the networks to learn more effectively at each resolution stage.</li>
+          <li><strong>Loss Function</strong>: ProGANs use the same loss functions as traditional GANs, but the training is done progressively by adding layers:
+
+          <li>\[ \mathcal{L}_D = - \mathbb{E}_{x \sim p_{\text{data}}(x)}[\log D(x)] - \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))] \]</li>
+                
+          <li><strong>Term 1</strong>: \( - \mathbb{E}_{x \sim p_{\text{data}}(x)}[\log D(x)] \) is maximized when the discriminator correctly identifies real images as real. \( D(x) \) should be close to 1 for real images.</li>
+          <li><strong>Term 2</strong>: \( - \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))] \) is minimized when the discriminator correctly identifies fake images as fake. \( D(G(z)) \) should be close to 0 for fake images.</li>
+                
+          <li>\[ \mathcal{L}_G = - \mathbb{E}_{z \sim p_z(z)}[\log D(G(z))] \]</li>
+
+          <li>This term is minimized when the generator successfully fools the discriminator into believing that fake images are real. \( D(G(z)) \) should be close to 1 for fake images.</li>
+        </ol>
+        
+        <h2>Exciting Applications of GANs</h2>
+        <ol>
+          <li><strong>Image Generation</strong>: They can create realistic images from scratch.</li>
+          <li><strong>Image-to-Image Translation</strong>: Convert images from one type to another, like turning a sketch into a photo.</li>
+          <li><strong>Super-Resolution</strong>: Enhance the resolution of images, making them sharper and more detailed.</li>
+          <li><strong>Data Augmentation</strong>: Generate extra training data to help improve other machine learning models.</li>
+        </ol>
+        <br>
+        <p>And that’s a wrap! GANs are an exciting and rapidly evolving field in AI, and their ability to generate realistic data opens up a world of possibilities. Whether you’re an AI enthusiast, a researcher, or just someone who loves cool tech, GANs have something to fascinate everyone. Happy GAN-ing! 🎨✨</p>
+
+          </section>
+
+          <!-- Add more content as needed -->
+
+      </main>
+
+  </div>
+
+</body>
+</html>

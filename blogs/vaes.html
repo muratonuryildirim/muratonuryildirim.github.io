@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murat Onur Yildirim - FOCIL</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="./blog-styles.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <aside>
+            <img src="../imgs/profile.webp" alt="Murat Onur Yildirim's Profile Picture">
+            <h3>Murat Onur Yildirim</h3>
+            <p class="description">PhD Candidate in AI</p>
+            <ul class="social-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#publications">Publications</a></li>
+                <li><a href="../index.html#blog-posts" class="active">Blogs</a></li>
+                <li> - </li>
+                <li><a href="https://linkedin.com/in/muratonuryildirim" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/muratonuryildirim" target="_blank">GitHub</a></li>
+                <li><a href="https://scholar.google.com/citations?user=3NAjgx0AAAAJ&hl=en" target="_blank">Scholar</a></li>
+                <li><a href="https://twitter.com/monuryildirim" target="_blank">X</a></li>
+            </ul>
+        </aside>
+
+        <main id="main">
+            <header>
+              <h1>Exploring Autoencoders (AEs) and Variational Autoencoders (VAEs)</h1>
+            </header>
+            
+            <section>
+              <ol>
+                <li>Imagine you have a magical machine that can not only compress your favorite photos into tiny codes but also recreate them. 
+                These magical machines are called <strong>autoencoders</strong>.</li>
+                <li>They are unsupervised learner since they only need the input data without labels.</li>
+              </ol>
+                
+              <h2>Introduction to Autoencoders (AEs)</h2>
+              <ol>
+                <li>Its consists of two main parts and primary purpose is to learn efficient representations (or encodings) of data, typically for the purpose of dimensionality reduction or feature learning.</li>
+                <li><strong>Encoder</strong>: This part of the network compresses the input into a <strong>latent-space</strong> representation. It maps the input data to a lower-dimensional space, capturing the most critical features. Think of the encoder as a master sculptor who chisels down the input (your favorite photo) into a smaller, meaningful representation (a code). This compressed version captures the essence of the image.</li>
+                <li><strong>Decoder</strong>: This part of the network reconstructs the input data from the latent-space representation. The goal is to recreate the original input as accurately as possible. The decoder is like an art restorer who takes the sculptor's code and reconstructs the original artwork from it.</li>
+                <li>The entire network is trained to minimize the difference between the input data and the reconstructed output, typically using a loss function such as Mean Squared Error (MSE).</li>
+                <li>Although Autoencoders (AEs) good at reconstruction, the embeddings of inputs in the latent space are often very scattered. This disorganization makes it challenging to generate new data, as the learned embeddings might occupy a small region with limited meaningful information within a vast latent space.</li>
+              </ol>
+
+              <h2>The Variational Autoencoder (VAE)</h2>
+              <ol>
+                <li>VAEs imposes a structure on the latent space through regularization: it forces the embeddings to place within a constrained space. This way the decoder part hopefully will be able to generate more meaningful outputs.</li>
+                <li>They also upgrade our machine with a sprinkle of variability by adding a touch of probability. VAEs doesn't just compress an input into a single code but it maps the input to a distribution over the latent space. 
+                  This means instead of having a fixed representation, each input gets a range of possible codes, adding flexibility and creativity to the mix. It means a single input can be represented with a (Gaussian) distribution.</li>
+                <li>To ensure that the model remains trainable despite the randomness involved in sampling from distributions we benefit from the <strong>reparameterization trick</strong>.</li>
+              </ol>
+            
+              <h3>How VAEs Work</h3>
+              <ol>
+                <li><strong>Encoder Function</strong>: \( \text{Encoder}(x) \rightarrow (\mu, \sigma) \).
+                  The encoder transforms the input \( x \) into two vectors; mean vector \( \mu \) as the center of our distribution in the latent space
+                  and standard deviation vector \( \sigma \) as the spread or variability.
+                </li>
+                <li><strong>Latent Space and Reparameterization Trick</strong>: \( z = \mu + \sigma \cdot \epsilon \). To generate latent variable \( z \), we sample from the Gaussian distribution defined by learned parameters \( \mu \) and \( \sigma \). 
+                  To impose randomness \( \epsilon \) from a standard normal distribution \( \mathcal{N}(0, I) \) we use the reparameterization trick to keep everything differentiable and trainable.
+                </li>
+                <li><strong>Decoder Function</strong>: \( \text{Decoder}(z) \rightarrow \hat{x} \). The decoder takes the sampled latent variable \( z \) and reconstructs the input \( x \). 
+                  It’s like translating the coordinates back into a recognizable photo \( \hat{x} \).</li>
+
+                <li> <strong>During Training,</strong> VAEs sums two loss function to ensure that our model learns to generate realistic data while maintaining a structured latent space.</li>
+                <li><i>1. Reconstruction Loss</i>: Measures how well the decoder recreates the input. If our recreated photo looks different from the original, the reconstruction loss is high. Common metrics include Mean Squared Error (MSE) or Binary Cross-Entropy (BCE).
+                  <br>
+                  \[ \text{Reconstruction Loss} = \text{MSE}(x, \hat{x}) \text{ or } \text{BCE}(x, \hat{x}) \]
+                </li>
+                <li><i>2. KL Divergence</i>: Measures how the learned distribution \( q(z|x) \) (with mean \( \mu \) and variance \( \sigma^2 \)) deviates from the prior \( p(z) \), usually a standard normal distribution \( \mathcal{N}(0, I) \).
+                  <br>
+                  \[ \text{KL Divergence} = D_{KL}(q(z|x) || p(z)) \]
+                </li>
+                <li><strong>During Inference,</strong> we use all parts of the VAE to get \( \mu \), \( \sigma \), and \( \epsilon \) to generate \( \hat{x} \).</li>
+              </ol>
+
+              <h2>Disentangled VAEs: Bringing Order to Latent Space</h2>
+              <ol>
+                <li>While VAEs are fantastic, sometimes we want even more control over the latent space. 
+                  Imagine if our latent space universe had clearly defined regions, each corresponding to a different aspect of the data (like hair color, facial expression, etc.). 
+                  This is what Disentangled VAE aim to achieve.It modifies the loss function to encourage the latent variables to represent distinct, independent factors of variation in the data.
+                  It introduces a hyperparameter \(\beta\) that scales the KL divergence term in the loss function:
+                </li>
+                <li>
+                  \[ \text{Total Loss} = \text{Reconstruction Loss} + \beta \cdot \text{KL Divergence} \]
+                </li>
+                <li>
+                  By increasing \(\beta\), you increase the power of Gaussian distribution against reconstruction. 
+                  This encourages the model to learn more disentangled representations and makes the latent space more interpretable or controllable. 
+                  For instance, if one dimension of the latent space controls hair color and another controls facial expression, you can easily tweak these features independently in the generated images.
+                </li>
+              </ol>
+
+              <h2>When to Use Which?</h2>
+              <ol>
+                <li><strong>VAEs</strong>: Use VAEs when you need a smooth, continuous latent space and want to generate new data samples. VAEs are great for understanding the underlying distribution of the data and generating interpolations between data points.</li>
+                <li><strong>Disentangled VAEs</strong>: Use when you need interpretable and controllable latent representations. Disentangled VAEs are ideal for applications where you want to manipulate specific features of the generated data.</li>
+                <li><strong>GANs</strong>: Use GANs when you need high-quality, realistic data generation. GANs are often preferred for tasks that require very realistic outputs, such as image generation and video synthesis.</li>
+              </ol>
+            
+              <h2>Wrapping Up</h2>
+              <ol>
+                <li>
+                  Variational Autoencoders (VAEs) open up a fascinating world of generative models by combining the power of autoencoders with probabilistic modeling. 
+                  Through the clever reparameterization trick, they make training feasible and effective, allowing for the generation of new, creative data samples. 
+                  Disentangled VAEs take this a step further by providing interpretable and controllable latent spaces, making them incredibly useful for specific applications. 
+                </li>
+                <li>
+                  So, next time you see a stunning piece of AI-generated art or a hyper-realistic synthetic image, you'll know the magical principles that might be behind it. Happy coding and generating!
+                </li>
+              </ol>
+            </section>
+
+            <!-- Add more content as needed -->
+
+        </main>
+
+    </div>
+
+</body>
+</html>
