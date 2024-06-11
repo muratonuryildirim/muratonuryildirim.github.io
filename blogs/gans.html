@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Murat Onur Yildirim - FOCIL</title>
+    <title>Murat Onur Yildirim - GANs</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="./blog-styles.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -66,8 +66,7 @@
           <li>If you like math, here’s a peek under the hood. 
           The interaction between the generator and discriminator is like a game where each is trying to outsmart the other. 
           This is described by the following equation.</li>
-
-          <li> \[ \min_G \max_D V(D, G) = \mathbb{E}_{x \sim p_{\text{data}}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))] \] </li>
+          <li><span style="font-size:85%"> \[ \min_G \max_D V(D, G) = \mathbb{E}_{x \sim p_{\text{data}}(x)}[\log D(x)] + \mathbb{E}_{z \sim p_z(z)}[\log(1 - D(G(z)))] \] </span></li>
 
           <li>Don’t worry if this looks complex! Let’s break it down:</li>
           <li><strong>Discriminator’s Goal</strong>: The discriminator tries to maximize its ability to tell real images from fake ones. It does this by maximizing the term \( \mathbb{E}_{x \sim p_{\text{data}}(x)}[\log D(x)] \), which represents the expected value over all real data samples. This term is maximized when \( D(x) \) (the discriminator’s output for real data) is close to 1 (high probability that the data is real).</li>
@@ -146,7 +145,7 @@
           <li><strong>Benefits</strong>: This approach allows for more control over the generated images. You can direct the GAN to create specific types of images, making CGANs useful for tasks where you need targeted generation.</li>
           <li><strong>Loss Function</strong>: The loss functions for CGANs extend the traditional GAN losses to include the conditioning information ground truth label \(y\).
 
-          <li>\[ \mathcal{L}_D = - \mathbb{E}_{x, y \sim p_{\text{data}}(x, y)}[\log D(x|y)] - \mathbb{E}_{z \sim p_z(z), y \sim p_{\text{data}}(y)}[\log(1 - D(G(z|y)))] \]</li>
+          <li><span style="font-size:85%">\[ \mathcal{L}_D = - \mathbb{E}_{x, y \sim p_{\text{data}}(x, y)}[\log D(x|y)] - \mathbb{E}_{z \sim p_z(z), y \sim p_{\text{data}}(y)}[\log(1 - D(G(z|y)))] \]</span></li>
                 
           <li><strong>Term 1</strong>: \(- \mathbb{E}_{x, y \sim p_{\text{data}}(x, y)}[\log D(x|y)] \) is maximized when the discriminator correctly identifies real images conditioned on y as real.  \( D(x|y) \) should be close to 1 for real images conditioned on \( y \).</li>
           <li><strong>Term 2</strong>: \(- \mathbb{E}_{z \sim p_z(z), y \sim p_{\text{data}}(y)}[\log(1 - D(G(z|y)))] \) is minimized when the discriminator correctly identifies fake images conditioned on y as fake.  \( D(G(z|y)) \) should be close to 0 for fake images conditioned on \( y \).</li>
@@ -184,7 +183,6 @@
           <li><strong>Super-Resolution</strong>: Enhance the resolution of images, making them sharper and more detailed.</li>
           <li><strong>Data Augmentation</strong>: Generate extra training data to help improve other machine learning models.</li>
         </ol>
-        <br>
         <p>And that’s a wrap! GANs are an exciting and rapidly evolving field in AI, and their ability to generate realistic data opens up a world of possibilities. Whether you’re an AI enthusiast, a researcher, or just someone who loves cool tech, GANs have something to fascinate everyone. Happy GAN-ing! 🎨✨</p>
 
           </section>

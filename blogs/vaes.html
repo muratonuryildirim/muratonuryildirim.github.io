@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Murat Onur Yildirim - FOCIL</title>
+    <title>Murat Onur Yildirim - VAEs</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="./blog-styles.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -41,7 +41,12 @@
                 These magical machines are called <strong>autoencoders</strong>.</li>
                 <li>They are unsupervised learner since they only need the input data without labels.</li>
               </ol>
-                
+
+              <figure>
+                <img src="../imgs/ae.png" alt="Description of the image" class="center" style="width: 40rem;">
+                <br>
+              </figure>
+            
               <h2>Introduction to Autoencoders (AEs)</h2>
               <ol>
                 <li>Its consists of two main parts and primary purpose is to learn efficient representations (or encodings) of data, typically for the purpose of dimensionality reduction or feature learning.</li>
@@ -51,6 +56,12 @@
                 <li>Although Autoencoders (AEs) good at reconstruction, the embeddings of inputs in the latent space are often very scattered. This disorganization makes it challenging to generate new data, as the learned embeddings might occupy a small region with limited meaningful information within a vast latent space.</li>
               </ol>
 
+
+              <figure>
+                <img src="../imgs/ae1.png" alt="Description of the image" class="center" style="width: 40rem;">
+                <br>
+              </figure>
+
               <h2>The Variational Autoencoder (VAE)</h2>
               <ol>
                 <li>VAEs imposes a structure on the latent space through regularization: it forces the embeddings to place within a constrained space. This way the decoder part hopefully will be able to generate more meaningful outputs.</li>
@@ -58,6 +69,12 @@
                   This means instead of having a fixed representation, each input gets a range of possible codes, adding flexibility and creativity to the mix. It means a single input can be represented with a (Gaussian) distribution.</li>
                 <li>To ensure that the model remains trainable despite the randomness involved in sampling from distributions we benefit from the <strong>reparameterization trick</strong>.</li>
               </ol>
+
+              <figure>
+                <img src="../imgs/vae.jpg" alt="Description of the image" class="center">
+                <br>
+              </figure>
+
             
               <h3>How VAEs Work</h3>
               <ol>
@@ -82,6 +99,11 @@
                 </li>
                 <li><strong>During Inference,</strong> we use all parts of the VAE to get \( \mu \), \( \sigma \), and \( \epsilon \) to generate \( \hat{x} \).</li>
               </ol>
+
+              <figure>
+                <img src="../imgs/vae0.png" alt="Description of the image" class="center" style="width: 40rem;">
+                <br>
+              </figure>
 
               <h2>Disentangled VAEs: Bringing Order to Latent Space</h2>
               <ol>
