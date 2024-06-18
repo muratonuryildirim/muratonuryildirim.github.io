@@ -38,7 +38,7 @@
         <ol>
           <li>
             In recent years, the field of artificial intelligence (AI) has witnessed remarkable advancements, particularly in natural language processing (NLP). 
-            Among the most significant breakthroughs are the Generative Pre-trained Transformers (GPTs), a series of language models developed by OpenAI. 
+            Among the most significant breakthroughs are the Generative Pretrained Transformers (GPTs), a series of language models developed by OpenAI. 
             GPTs have transformed the way we interact with machines, offering unprecedented capabilities in understanding and generating human language. 
             This blog post delves into the evolution, architecture, training, inference, and impact of GPTs, highlighting their transformative potential across various industries.
           </li>
@@ -54,11 +54,15 @@
           </li>
         </ol>
 
+        <figure>
+          <img src="../imgs/blogs/autoregression.png" alt="Description of the image" class="center" style="width: 55rem;">
+        </figure>
+
         <h2> How GPTs Work </h2>
         <ol>
           <li>
-          Pre-training: The model is trained on a vast corpus of text in an unsupervised manner, learning to predict the next word in a sentence. This helps the model capture general language patterns and structures.
-          During pre-training, the objective is to minimize the cross-entropy loss between the predicted word probabilities and the actual words in the training data. The loss function can be defined as:
+          <b>Pretraining:</b> The model is trained on a vast corpus of text in an unsupervised manner, learning to predict the next word in a sentence. This helps the model capture general language patterns and structures.
+          During pretraining, the objective is to minimize the cross-entropy loss between the predicted word probabilities and the actual words in the training data. The loss function can be defined as:
           
           \[ L = -\sum_{i=1} \log P(w_i | w_1, w_2, ..., w_{i-1}) \]
 
@@ -66,139 +70,111 @@
           The optimization is typically performed using stochastic gradient descent (SGD) or its variants, such as Adam, which adjust the model parameters to minimize the loss.
           </li>
           <li>
-          2. Fine-tuning: The pre-trained model is further trained on specific tasks with labeled data. This step tailors the model to perform particular tasks, such as translation, summarization, or question answering.
+          <b>Finetuning or Prompting:</b> Initial GPTs further trained on specific tasks with labeled data. This step tailors the model to perform particular tasks, such as translation, summarization, or question answering.
+          Next generation GPTs, like GPT-3, have demonstrated the ability to perform tasks without finetuning, relying on prompts or examples to guide the generation process referred as <i>in-context learning</i>.
           </li>
           <li>
-          During inference, the model generates text by predicting the next word in a sequence, given the preceding words. 
+          <b>During inference,</b> the model generates text by predicting the next word in a sequence, given the preceding words. 
           The process is autoregressive, meaning the model generates one word at a time and then uses that word as part of the context for generating the next word. 
           The model samples from the probability distribution \( P(w_i | w_1, w_2, ..., w_{i-1}) \) to generate coherent and contextually relevant text. 
           This can be done using methods like;
           </li>
           <li>
-            Greedy Search: Selecting the word with the highest probability at each step.
+            <i>Greedy Search:</i> Selecting the word with the highest probability at each step.
           </li>
           <li>
-            Beam Search: Exploring multiple sequences and selecting the most probable one.
+            <i>Beam Search:</i> Exploring multiple sequences and selecting the most probable one.
           </li>
           <li>
-            Sampling: Randomly selecting words based on their probabilities, which can produce more diverse and creative outputs.
+            <i>Sampling:</i> Randomly selecting words based on their probabilities, which can produce more diverse and creative outputs.
           </li>
           <li>
-            Top-k Sampling: Restricting sampling to the top k most probable words.
+            <i>Top-k Sampling:</i> Restricting sampling to the top k most probable words.
           </li>
           <li>
-            Nucleus Sampling (Top-p): Sampling from the smallest set of words whose cumulative probability exceeds a threshold p.
+            <i>Nucleus Sampling (Top-p):</i> Sampling from the smallest set of words whose cumulative probability exceeds a threshold p.
           </li>
         </ol>
-
-
+        
         <figure>
-          <img src="../imgs/autoregression.png" alt="Description of the image" class="center" style="width: 55rem;">
+          <img src="../imgs/blogs/gpt1.png" alt="Description of the image" class="center" style="width: 40rem;">
         </figure>
-              
+
         <h2>Evolution of GPT Models</h2>
         <h3>GPT-1: The First Step</h3>
         <ol>
           <li><i>Released: 2018, Parameters: 110 million.</i></li>
           <li>
-          GPT-1 was the first model in the series, introducing the concept of using a large corpus of text for pre-training followed by fine-tuning on specific tasks.
+          GPT-1 was the first model in the series, introducing the concept of using a large corpus of text for pretraining followed by finetuning on specific tasks.
           The model demonstrated the potential of this approach, achieving state-of-the-art performance on several NLP benchmarks. 
           However, it had limitations in handling long-term dependencies and generating coherent long-form text.
           </li>
-          <li> <strong>Key Features:</strong></li>
           <li>
-            Transformer Decoder: Utilizes only the decoder part of the Transformer architecture.
+            <b>Transformer Decoder:</b> Utilizes only the decoder part of the Transformer architecture.
           </li>
           <li>
-            Pre-training and Fine-tuning: Established the two-step training process that became a standard for subsequent models.
+            <b>Two-step training process:</b> It is consist of pretraining and finetuning steps which are the basis for following GPTs.
           </li>
         </ol>
 
         <h3>GPT-2: Scaling Up</h3>
         <ol>
           <li><i>Released: 2019, Parameters: 1.5 billion.</i></li>
-          <li>GPT-2 represented a significant leap in scale and performance. 
+          <li>GPT-2 represented a significant leap in scale and performance. It is designed to show that scaling up the model size can lead to better results even without finetuning step (zero-shot).
             With 1.5 billion parameters, it demonstrated an impressive ability to generate coherent and contextually relevant text. 
-            Its performance across a wide range of NLP tasks showcased the benefits of scaling up the model size.
           </li>
-          <li> <strong>Key Features:</strong></li>
-          <li> Larger Scale:Ten times more parameters than GPT-1, leading to improved performance.</li>
-          <li> Zero-Shot Learning: Demonstrated the ability to perform tasks it wasn’t explicitly trained on by leveraging its general language understanding.</li>
+          <li> <b>Larger Scale:</b>Ten times more parameters than GPT-1, leading to improved performance even without finetunung.</li>
+          <li> <b>Zero-Shot Learning:</b> Demonstrated the ability to perform tasks it wasn’t explicitly trained on by leveraging its general language understanding.</li>
         </ol>
 
         <h3>GPT-3: The Giant Leap</h3>
         <ol>
           <li><i>Released: 2020, Parameters: 175 billion.</i></li>
-          <li>GPT-3 is the largest and most powerful model in the series to date, with 175 billion parameters. 
+          <li>GPT-3 is one of the largest and most powerful model in the series to date, with 175 billion parameters. 
             Its vast scale allows it to generate human-like text with remarkable coherence and context awareness. 
             GPT-3’s capabilities extend far beyond its predecessors, making it useful in a wide array of applications, from creative writing to complex problem-solving.
           </li>
-          <li> <strong>Key Features:</strong></li>
-          <li>Prompt-Based Learning: Unlike its predecessors, GPT-3 primarily uses prompt engineering to perform tasks. 
-            Users provide examples or instructions in the prompt, and the model generates appropriate responses based on that context.</li>
-          <li>Few-Shot and One-Shot Learning: Can perform specific tasks with minimal examples, significantly reducing the need for extensive fine-tuning.</li>
-          <li>Broad Applications: Powers applications like GPT-3-based chatbots, content generation tools, and even programming aids like GitHub Copilot.</li>
-          <li>Resource Intensity: Training GPT-3 requires substantial computational resources and energy, raising accessibility and environmental concerns.</li>
-          <li>Bias and Fairness: With more parameters, the model can also amplify biases present in the training data, necessitating advanced mitigation strategies.</li>
+          <li><b>Prompt-Based Learning:</b> To remove the finetuning for each specific task, unlike its predecessors, GPT-3 primarily uses promps to perform tasks. 
+            Users provide examples or instructions in the prompt, and the model generates appropriate responses based on that context instead of finetuning.
+            The model is large enough that providing prompts functions similarly to finetuning, enabling it to perform the required or requested tasks.</li>
+          <li><b>One-Shot and Few-Shot Learning:</b> Prompts act as one-shot or few-shot learning that can perform specific tasks with minimal examples, reducing the need for extensive finetuning.</li>
+          <li><b>Broad Applications:</b> GPT-3 powers applications like chatbots, content generation tools, and even programming aids like GitHub Copilot.</li>
+          <li><b>Resource Intensity:</b> Training GPT-3 requires substantial computational resources and energy, raising accessibility and environmental concerns.</li>
+          <li><b>Bias and Fairness:</b> With more parameters, the model can also amplify biases present in the training data, necessitating advanced mitigation strategies.</li>
         </ol>
 
+        
         <figure>
-          <img src="../imgs/gpt1.png" alt="Description of the image" class="center" style="width: 40rem;">
+          <img src="../imgs/blogs/incontext.png" alt="Description of the image" class="center" style="width: 60rem;">
         </figure>
-
-        <h2>Applications of GPTs</h2>
-        <ol>
-          <li>
-            Content Generation: GPTs can generate articles, blog posts, and creative writing, assisting content creators in producing high-quality text efficiently.
-          </li>
-          <li>
-            Conversational Agents: AI chatbots and virtual assistants leverage GPTs to engage in more natural and contextually aware conversations with users.
-          </li>
-          <li>
-            Translation and Summarization: GPTs provide robust translation services and generate concise summaries of long documents, aiding in information dissemination.
-          </li>
-          <li>
-            Programming Assistance: Codex, a descendant of GPT-3, powers GitHub Copilot, helping developers by suggesting code snippets and completing programming tasks.
-          </li>
-          <li>
-            Education and Tutoring: GPTs can serve as intelligent tutors, providing personalized educational content and answering student queries in real-time.
-          </li>
-          <li>
-            Healthcare: GPTs are used for generating medical reports, assisting in diagnostics, and providing patient care information.
-          </li>          
-          <li>
-            Customer Support: Automating responses to customer inquiries, improving efficiency and user satisfaction.
-          </li>
-        </ol>
 
         <h2>Ethical Considerations and Challenges</h2>
         <ol>
           <li>
-            Bias and Fairness: GPTs can perpetuate and amplify biases present in the training data, leading to unfair or harmful outcomes. Addressing this requires ongoing research and the development of mitigation strategies.
+            <b>Bias and Fairness:</b> GPTs can perpetuate and amplify biases present in the training data, leading to unfair or harmful outcomes. Addressing this requires ongoing research and the development of mitigation strategies.
           </li>
           <li>
-            Misinformation and Misuse: The ability of GPTs to generate convincing text can be exploited to spread misinformation or create deepfake content. Ensuring responsible use is crucial.
+            <b>Misinformation and Misuse:</b> The ability of GPTs to generate convincing text can be exploited to spread misinformation or create deepfake content. Ensuring responsible use is crucial.
           </li>
           <li>
-            Resource Intensity: Training large models like GPT-3 requires significant computational resources and energy, raising concerns about the environmental impact and accessibility.
+            <b>Resource Intensity:</b> Training large models like GPT-3 requires significant computational resources and energy, raising concerns about the environmental impact and accessibility.
           </li>
           <li>
-            Interpretability: Understanding the decision-making process of GPTs remains challenging, hindering the ability to fully trust and control AI outputs.
+            <b>Interpretability:</b> Understanding the decision-making process of GPTs remains challenging, hindering the ability to fully trust and control AI outputs.
           </li>
           <li>
-            Privacy Concerns: Ensuring that sensitive information in training data is not inadvertently disclosed through the model's outputs.
+            <b>Privacy Concerns:</b> Ensuring that sensitive information in training data is not inadvertently disclosed through the model's outputs.
           </li>
         </ol>
-
         
         <h2>The Future of GPTs</h2>
         <ol>
-          <li>Hybrid Models: Combining GPTs with other AI models to leverage the strengths of each.</li>
-          <li>Interactive AI: Developing models that can interact with other AI systems and humans in more dynamic ways.</li>
-          <li>Sustainability: Focusing on reducing the environmental impact of training large AI models.</li>
+          <li><b>Hybrid Models:</b> Combining GPTs with other AI models to leverage the strengths of each.</li>
+          <li><b>Interactive AI:</b> Developing models that can interact with other AI systems and humans in more dynamic ways.</li>
+          <li><b>Sustainability:</b> Focusing on reducing the environmental impact of training large AI models.</li>
         </ol>
         
-        <h1>Wrapping up</h1>
+        <h2>Wrapping up</h2>
         <ol>
           <li>
             GPTs represent a monumental achievement in the field of AI, pushing the boundaries of what machines can understand and create in human language. 
