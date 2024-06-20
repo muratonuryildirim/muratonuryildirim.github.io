@@ -41,9 +41,12 @@
             Sounds like science fiction, right? Welcome to the fascinating world of diffusion models—a cutting-edge technology in deep learning that's pushing the boundaries of generative models. 
             Let's dive deep into how these models work, how they're trained, and how they can generate incredible images from textual prompts.
           </li>
-          
         </ol>
-        
+
+        <figure>
+          <img src="../imgs/blogs/diffusion0.png" alt="Description of the image" class="center" style="width: 40rem;">
+        </figure>
+
         <h2>What Are Diffusion Models?</h2>
         <ol>
           <li>Diffusion models are a type of generative model that creates data by starting with pure noise and gradually refining it until it looks like real data. 
@@ -51,7 +54,7 @@
           </li>
           <li><b>Forward Process (Diffusion):</b> This phase involves adding noise to an image step by step until it becomes pure noise. 
             Imagine gradually blurring a photo until it's completely unrecognizable.
-            Mathematically, we add Gaussian noise at each step, controlled by a schedule \( β_t \).
+            Mathematically, we add Gaussian noise at each step, controlled by a noise schedule function \( β_t \).
           </li>
           <li><b>Reverse Process (Denoising):</b> Here, the model learns to reverse the noise addition. 
             It starts with a noisy image and iteratively removes the noise, trying to recover the original image.
@@ -66,14 +69,31 @@
           <li><b>Adding Noise (Forward Process):</b> For each image \( x_0 \), select a random time step \( t \) 
             (ranging from 1 to total number of steps \( T \)) and add noise to create a sequence of noisy images \( x_t \).
           </li>
-          <li>\[x_t = sqrt(α_t) * x_0 + sqrt(1 - α_t) * ε\]</li>
-          <li>Here, \(ε\) is Gaussian noise, and \(α_t\) is a cumulative product of noise factors \(β_t\).</li>
+          <li>\[x_t = \sqrt{\alpha_t} x_0 + \sqrt{1 - \alpha_t} * ε\]</li>
+          <li>Here, \(ε\) is Gaussian noise, and \(\alpha_t\) is a cumulative product of noise factors \(β_t\).</li>
           <li><b>Training Objective:</b> The goal is to train a neural network \(ε_θ\) to predict the added noise \(ε\) by learning 
             to minimize the difference between the true noise and the predicted noise.
           </li>
-          <li>\[𝓛 = E_{x_0, t, ε} [ || ε - ε_θ(x_t, t) ||^2 ]\]</li>
+          <li>\[ \mathcal{L} = E_{x_0, t, ε} [ || ε - ε_θ(x_t, t) ||^2 ] \]</li>
         </ol>
         
+        <figure>
+          <img src="../imgs/blogs/glide.png" alt="Description of the image" class="center" style="width: 40rem;">
+        </figure>
+
+        <h3>Training Text Guided Diffusion Model: Integrating Text Prompts</h3>
+        <ol>
+          <li>Now, let's sprinkle some magic dust on our diffusion model and make it text-guided. Imagine describing an image in words and having the AI bring it to life!</li>
+          <li><b>Text-Image Pairs:</b> Use a dataset with text-image pairs (e.g., MS COCO).</li>
+          <li><b>Text Embedding:</b> Convert textual descriptions into embeddings using a pre-trained text encoder like CLIP.</li>
+          <li><b>Conditional Diffusion Model:</b> Modify the diffusion model to condition on both the noisy image \(x_t\) and the text embedding \(z\).</li>
+          <li><b>Sample a Text-Image Pair:</b> Take an image \(x_0\) and its corresponding text description.</li>
+          <li><b>Generate Text Embedding:</b> Convert the text description to a text embedding \(z\) using CLIP.</li>
+          <li><b>Add Noise to Image:</b> For a randomly selected time step \(t\), add noise to the image \(x_0\).</li>
+          <li><b>Train the Model to Predict Noise:</b> Predict the noise added to \(x_t\), conditioned on both \(x_t\) and the text embedding \(z\).</li>
+          <li>\[ \mathcal{L} = E_{x_0, t, ε, z} [ || ε - ε_θ(x_t, t, z) ||^2 ] \]</li>
+        </ol>
+
         <h3>Generating New Images: The Artistic Touch</h3>
         <ol>
           <li>
@@ -81,42 +101,14 @@
           </li>
           <li><b>Start with Noise:</b> Begin with a random noise image \(x_T\).</li>
           <li><b>Iterative Denoising:</b> For each time step \(t\) from \(T\) down to 1, use the trained model to predict the noise \(ε_t\).
-            Then, remove the predicted noise to get the previous step's image \(x_{t-1}\).</li>
-          <li>\[x_{t-1} = 1/√(α_t) * (x_t - (β_t/√(1 - α_t)) * ε_θ(x_t, t))\]</li>
+            Then, remove the predicted noise to get the previous step's image \(x_{t-1}\) conditioned on both \(x_t\) (and the text embedding \(z\)).</li>
+          <li>\[x_{t-1} = \frac{1}{\sqrt{\alpha_t}} (x_t - \frac{β_t}{\sqrt{1 - \alpha_t}}) ε_θ(x_t, t)\]</li>
         </ol>
 
-        <h2>Text-Guided Diffusion Models: Turning Words into Art</h2>
-        <ol>
-          <li>
-            Now, let's sprinkle some magic dust on our diffusion model and make it text-guided. Imagine describing an image in words and having the AI bring it to life!
-          </li>
-        </ol>
-        
-        <h3>Integrating Text Prompts</h3>
-        <ol>
-          <li><b>Text-Image Pairs:</b> Use a dataset with text-image pairs (e.g., MS COCO).</li>
-          <li><b>Text Embedding:</b> Convert textual descriptions into embeddings using a pre-trained text encoder like CLIP.</li>
-          <li><b>Conditional Diffusion Model:</b> Modify the diffusion model to condition on both the noisy image \(x_t\) and the text embedding \(z\).</li>
-        </ol>
-        
-        <h3>Detailed Training Steps</h3>
-        <ol>
-          <li><b>Sample a Text-Image Pair:</b> Take an image \(x_0\) and its corresponding text description.</li>
-          <li><b>Generate Text Embedding:</b> Convert the text description to a text embedding \(z\) using CLIP.</li>
-          <li><b>Add Noise to Image:</b> For a randomly selected time step \(t\), add noise to the image \(x_0\):.</li>
-          <li>\[x_t = sqrt(α_t) * x_0 + sqrt(1 - α_t) * ε\]</li>
-          <li><b>Train the Model to Predict Noise:</b> Predict the noise added to \(x_t\), conditioned on both \(x_t\) and the text embedding \(z\):</li>
-          <li>\[𝓛 = E_{x_0, t, ε, z} [ || ε - ε_θ(x_t, t, z) ||^2 ]\]</li>
-        </ol>
-        
-        <h3>Text-Guided Image Generation</h3>
-        <ol>
-          <li>
-            To generate an image from a textual description; follow these steps:
-          </li>
-          <li><b>Start with Noise:</b> Begin with a random noise image \(x_T\).</li>
-          <li><b>Iterative Denoising with Text Conditioning:</b> For each time step \(t\) from \(T\) down to 1, use the trained model to predict the noise, conditioned on both \(x_t\) and the text embedding \(z\).</li>
-        </ol>
+
+        <figure>
+          <img src="../imgs/blogs/diffusion-algo.png" alt="Description of the image" class="center" style="width: 40rem;">
+        </figure>
 
         <h2>Applications of Diffusion Models</h2>
         <ol>
@@ -127,7 +119,7 @@
           <li><b>Text-to-image synthesis:</b> By conditioning the diffusion model on a text prompt, it can generate images that match the textual description, enabling text-to-image synthesis.</li>
         </ol>
 
-        <h2>Conclusion</h2>
+        <h2>Wrapping Up</h2>
         <ol>
           <li>
             Diffusion models represent a giant leap forward in the field of generative models, capable of producing stunningly realistic images. 
@@ -137,10 +129,6 @@
             So, what image will you create today?
           </li>
         </ol>
-        
-        <figure>
-          <img src="../imgs/blogs/gpt1.png" alt="Description of the image" class="center" style="width: 40rem;">
-        </figure>
 
       </section>
 
