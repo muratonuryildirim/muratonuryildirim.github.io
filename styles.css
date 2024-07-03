@@ -24,15 +24,6 @@ html {
     line-height: 1.3rem;
 }
 
-.blog-posts-container {
-    display: flex;
-    margin: 2rem auto;
-    background-color: #f4f4f4;
-    justify-content: space-between; /* Ensure even spacing */
-    overflow-x: auto; /* Enable horizontal scrolling if necessary */
-}
-
-
 aside {
     width: 30%;
     padding: 1rem;
@@ -128,11 +119,39 @@ a:hover {
     text-decoration: underline;
 }
 
-.publication-item {
-    display: none;
+/* POTS */
+.potpourri-item{
+    flex: 0 0 18rem; /* Adjusted width for three posts per row */
+    max-width: 18rem; /* Added to ensure responsiveness */
+    display: flex;
+    align-items: left;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 0.5vw;
 }
 
-.blog-item {
+.potpourri-item img {
+    max-width: 9rem;
+    height: auto;
+    margin: 0 auto;
+    flex-shrink: 0;
+    display: block;
+    padding: 0.2rem;
+    border-radius: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.potpourri-container {
+    display: flex;
+    margin: 1rem auto;
+    background-color: #f4f4f4;
+    justify-content: space-between; /* Ensure even spacing */
+    overflow-x: auto; /* Enable horizontal scrolling if necessary */
+}
+
+/* PUBS */
+.publication-item {
     display: none;
 }
 
@@ -157,7 +176,13 @@ a:hover {
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
 }
 
-.blog-item.show {
+
+/* PORTFOLIO */
+.portfolio-item {
+    display: none;
+}
+
+.portfolio-item.show {
     flex: 0 0 18rem; /* Adjusted width for three posts per row */
     max-width: 18rem; /* Added to ensure responsiveness */
     display: flex;
@@ -165,11 +190,10 @@ a:hover {
     justify-content: space-around;
     flex-direction: column;
     padding: 0.5vw;
-
 }
 
-.blog-item.show img {
-    max-width: 10rem;
+.portfolio-item.show img {
+    max-width: 12rem;
     height: auto;
     margin: 0 auto;
     flex-shrink: 0;
@@ -177,21 +201,26 @@ a:hover {
     border: 0.1rem solid #a5a3a3;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
     padding: 0.2rem;
-    border-radius: 10rem;
+    border-radius: 1rem;
     align-items: center;
     margin-bottom: 1rem;
-
-
 }
 
-.blog-item.show div, .publication-item.show div {
+.portfolio-container {
+    display: flex;
+    margin: 2rem auto;
+    background-color: #f4f4f4;
+    justify-content: space-between; /* Ensure even spacing */
+    overflow-x: auto; /* Enable horizontal scrolling if necessary */
+}
+
+.portfolio-item.show div, .publication-item.show div {
     flex-grow: 2;
 }
 
 .blog-content.show {
     flex: 2;
 }
-
 
 /* Responsive styles */
 @media (max-width: 768px) {
@@ -222,9 +251,25 @@ a:hover {
         line-height: 1.3rem;
     }
 
-    .blog-posts-container{
+    .portfolio-container{
         flex-direction: column;
         align-items: center;
+    }
+
+    .portfolio-item.show img {
+        max-width: 60%;
+        margin: 0 auto 1rem;
+    }
+
+    .potpourri-container{
+        flex-direction: column;
+        align-items: center;
+        width: 85%;
+    }
+
+    .potpourri-item img {
+        max-width: 70%;
+        margin: 0 auto 1rem;
     }
 
     .blog-item.show, .publication-item.show {
