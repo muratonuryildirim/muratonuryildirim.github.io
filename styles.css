@@ -127,11 +127,11 @@ a:hover {
     align-items: left;
     justify-content: space-around;
     flex-direction: column;
-    padding: 0.5vw;
+    padding: 1rem;
 }
 
 .potpourri-item img {
-    max-width: 9rem;
+    max-width: 10rem;
     height: auto;
     margin: 0 auto;
     flex-shrink: 0;
@@ -139,7 +139,6 @@ a:hover {
     padding: 0.2rem;
     border-radius: 1rem;
     align-items: center;
-    margin-bottom: 1rem;
 }
 
 .potpourri-container {
@@ -189,7 +188,6 @@ a:hover {
     align-items: left;
     justify-content: space-around;
     flex-direction: column;
-    padding: 0.5vw;
 }
 
 .portfolio-item.show img {
@@ -254,21 +252,22 @@ a:hover {
     .portfolio-container{
         flex-direction: column;
         align-items: center;
+        margin: 0 auto 1rem;
     }
 
     .portfolio-item.show img {
-        max-width: 60%;
+        max-width: 75%;
         margin: 0 auto 1rem;
     }
 
     .potpourri-container{
         flex-direction: column;
         align-items: center;
-        width: 85%;
+        width: 50%;
     }
 
     .potpourri-item img {
-        max-width: 70%;
+        max-width: 95%;
         margin: 0 auto 1rem;
     }
 
