@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murat Onur Yildirim</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="./blog-styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <img src="../imgs/profile.webp" alt="Murat Onur Yildirim's Profile Picture">
+            <h3>Murat Onur Yildirim</h3>
+            <p class="description">PhD Candidate in AI</p>
+            <ul class="social-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html#publications" class="active">Publications</a></li>
+                <li><a href="../index.html#portfolio">Portfolio</a></li>
+                <li><a href="../index.html#potpourri">Potpourri</a></li>
+                <li> - </li>
+                <li><a href="https://linkedin.com/in/muratonuryildirim" target="_blank">LinkedIn</a></li>
+                <li><a href="https://github.com/muratonuryildirim" target="_blank">GitHub</a></li>
+                <li><a href="https://scholar.google.com/citations?user=3NAjgx0AAAAJ&hl=en" target="_blank">Scholar</a></li>
+                <li><a href="https://twitter.com/monuryildirim" target="_blank">X</a></li>
+            </ul>
+        </aside>
+
+        <main id="main">
+            <header>
+                <h1>Meet AdaCL, A Plug-in for Smarter and Memory-Efficient Continual Learners. </h1>
+                <i>Elif Ceren Gok Yildirim, Murat Onur Yildirim,  Mert Kilickaya, Joaquin Vanschoren</i>
+            </header>
+
+            <section>   
+                <p>Hello, everyone! Today, I’m thrilled to introduce you to our recent work: AdaCL, which stands for Adaptive Continual Learning. 
+                This innovative approach is not only straightforward but also incredibly versatile, making it easy to implement across various frameworks. 
+                Let's dive in and explore what makes AdaCL so exciting!
+                </p>
+
+                <h2>Understanding Class-Incremental Learning</h2>
+                <ol>
+                <li>
+                In the rapidly evolving field of artificial intelligence, one of the key challenges is enabling models to learn continuously without forgetting previous knowledge.
+                This concept, known as Class-Incremental Learning (CIL), aims to update AI models with new categories while maintaining or even improving accuracy on previously learned classes.
+                However, traditional methods often fall short due to their inability to adapt dynamically to new tasks.  
+                </li>
+                <li>
+                Class-Incremental Learning is a paradigm where a deep neural network is updated with new data that arrives sequentially. 
+                Unlike standard batch learning, which requires access to all data categories simultaneously, CIL allows the model to expand its classifier with new output nodes for newly introduced classes. 
+                This method avoids the need to store task identities, creating a more efficient and realistic learning scenario.
+                However, a significant challenge in CIL is catastrophic forgetting. This occurs when a model sacrifices accuracy on previously learned classes to learn new ones. 
+                Researchers have developed various approaches to mitigate this, including regularization, replay, and architecture adaptation.
+                </li>
+                </ol>
+
+                <figure>
+                <img src="../imgs/pubs/adacl.webp" alt="Description of the image" class="center" style="width: 42rem;">
+                <figcaption>Continual learners assume that the same hyperparameters are optimal for all tasks. However, AdaCL tunes learning rate (η), regularization strength (λ) and memory size per task (m), allowing to learn adaptively.</figcaption>
+                </figure>
+
+                <h2>The Need for Adaptive Learning</h2>
+                <ol>
+                <li>
+                Traditional CIL methods typically use fixed hyperparameters—such as learning rate, regularization strength, and memory size—throughout the learning process. 
+                This approach can be limiting because different tasks may require different levels of plasticity and stability. 
+                For instance, learning an unfamiliar object might require more flexibility compared to a familiar one.
+                This is where AdaCL steps in. We propose a way to dynamically adjusting hyperparameters based on the current state of the learner and the complexity of the new task. 
+                By leveraging Bayesian Optimization, AdaCL efficiently determines the optimal values for these parameters, enhancing the model's ability to learn new tasks while retaining previous knowledge.
+                </li>
+                </ol>
+
+                <h2>AdaCL: A Versatile Plug-in</h2>
+                <ol>
+                <li>
+                One of the standout features of AdaCL is its versatility. 
+                AdaCL is designed as a plug-in method, meaning it can be integrated with any existing CIL method. 
+                This adaptability ensures that various CIL approaches can benefit from the dynamic hyperparameter tuning provided by AdaCL, leading to enhanced performance across different applications.
+                </li>
+                </ol>
+
+                <h3>How AdaCL Works</h3>
+                <ol>
+                <li>AdaCL focuses on three main hyperparameters:</li>
+                <li>
+                <strong>Learning Rate (η)</strong>: Controls how much the model learns and update its weights during training.
+                </li>
+                <li>
+                <strong>Regularization Strength (λ)</strong>: Prevents changing the model too much not to forget previously acquired knowledge.
+                </li>
+                <li>
+                <strong>Memory Size (m)</strong>: Determines the number of exemplars stored from previous tasks for replay.
+                </li>
+                </ol>
+
+                <p>In AdaCL, these hyperparameters are treated as latent variables, adjusted dynamically with each new learning task. This adaptivity is achieved through Bayesian Optimization, a powerful technique that efficiently explores the hyperparameter space to find the optimal settings.</p>
+
+
+                <figure>
+                    <img src="../imgs/blogs/adacl-results.png" alt="Description of the image" class="center" style="width: 50rem;">
+                    <figcaption style="text-align: center;">AdaCL improves the performance by selecting hyperparameters adaptively per task whether increasing accuracy or reducing stored exemplars in the memory.</figcaption>
+                </figure>
+
+
+                <h3>Experimental Success</h3>
+                <ol>
+                <li>
+                AdaCL's effectiveness has been demonstrated through extensive experiments on well-known benchmarks like CIFAR-100 and MiniImageNet. 
+                The results showed significant improvements in accuracy and a reduction in forgetting, highlighting the benefits of adaptive hyperparameter tuning in CIL. 
+                Notably, AdaCL achieved the same accuracy while storing less replay data from each task, showcasing its efficiency and potential for real-world applications.
+                </li>
+                </ol>
+
+
+
+                <h3>Key Contributions of AdaCL</h3>
+                <ol>
+                <li>
+                <strong>Introduction of Adaptive Hyperparameter Selection</strong>: AdaCL is the first to highlight the importance of adaptive hyperparameter tuning in class-incremental learning.
+                By predicting optimal values for learning rate, regularization strength, and memory size based on the current task and learner state, AdaCL sets a new standard in CIL.
+                </li>
+                <li>
+                <strong>Performance Improvements</strong>: Large-scale experiments confirmed that AdaCL significantly enhances performance by whether increasing accuracy and reducing forgetting, 
+                or storing less exemplars and consuming less memory.
+                </li>
+                <li>
+                <strong>Versatile Plug-in Method</strong>: AdaCL can be integrated with any CIL method, enhancing its utility and flexibility.
+                </li>
+                </ol>
+        
+                <h2>Conclusion</h2>
+                <p>AdaCL represents a significant advancement in the field of adaptive continual learning. By dynamically tuning critical hyperparameters, AdaCL enables AI models to learn new tasks more effectively while preserving previously acquired knowledge. This approach not only improves the performance of AI models but also paves the way for more robust and adaptable artificial intelligence systems.</p>
+        
+                <p>As AI continues to evolve, methods like AdaCL will be crucial in developing systems that can continuously learn and adapt to new information, much like the human brain. This breakthrough underscores the importance of adaptability in AI and sets the stage for future innovations in the field.</p>
+                <p>If you are interested, you can dive deeper and check out the <a href="https://arxiv.org/pdf/2303.13113">paper</a> and the <a href="https://github.com/ElifCerenGokYildirim/AdaCL">code</a>.</p>
+            
+                
+            </section>
+
+            <!-- Add more content as needed -->
+
+        </main>
+
+    </div>
+
+</body>
+</html>
