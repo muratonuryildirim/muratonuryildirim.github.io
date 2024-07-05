@@ -263,7 +263,7 @@ a:hover {
     .potpourri-container{
         flex-direction: column;
         align-items: center;
-        max-width: 55%;
+        max-width: 60%;
     }
 
     .potpourri-item img {
