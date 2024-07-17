@@ -211,7 +211,7 @@
   }
 
   .portfolio-item img {
-    max-width: 90%;
+    max-width: 70%;
   }
 
   .publication-item.show {
@@ -222,6 +222,6 @@
   }
 
   .publication-item.show img {
-    max-width: 90%;
+    max-width: 80%;
   }
 }
