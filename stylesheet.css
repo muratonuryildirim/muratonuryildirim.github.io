@@ -187,3 +187,41 @@
   padding: 2px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.25);
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  body,
+  td,
+  th,
+  tr,
+  p,
+  a,
+  strong,
+  paper,
+  authors,
+  venue{
+    font-family: 'Lato', Verdana, Helvetica, sans-serif;
+    font-size: 0.78rem;
+  }
+
+  .portfolio-item{
+    flex-direction: column;
+    align-items: left;
+    margin: 0 auto 1rem;
+  }
+
+  .portfolio-item img {
+    max-width: 90%;
+  }
+
+  .publication-item.show {
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    margin: 0 auto 1rem;
+  }
+
+  .publication-item.show img {
+    max-width: 90%;
+  }
+}
