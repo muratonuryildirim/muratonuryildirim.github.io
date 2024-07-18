@@ -201,7 +201,7 @@
   authors,
   venue{
     font-family: 'Lato', Verdana, Helvetica, sans-serif;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
   }
 
   .portfolio-item{
@@ -215,13 +215,13 @@
   }
 
   .publication-item.show {
-    flex-direction: row;
+    flex-direction: column;
     text-align: left;
     width: 100%;
     margin: 0 auto 1rem;
   }
 
   .publication-item.show img {
-    max-width: 35%;
+    max-width: 85%;
   }
 }
