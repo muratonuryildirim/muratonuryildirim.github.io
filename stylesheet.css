@@ -205,25 +205,23 @@
   }
 
   .portfolio-item{
-    flex-direction: column;
+    flex-direction: row;
     align-items: left;
     text-align: left;
   }
 
   .portfolio-item img {
-    max-width: 70%;
-    align-items: left;
-    text-align: left;
+    max-width: 35%;
   }
 
   .publication-item.show {
-    flex-direction: column;
+    flex-direction: row;
     text-align: left;
     width: 100%;
     margin: 0 auto 1rem;
   }
 
   .publication-item.show img {
-    max-width: 80%;
+    max-width: 35%;
   }
 }
