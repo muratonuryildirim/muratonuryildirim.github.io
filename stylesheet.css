@@ -282,3 +282,29 @@
     margin-top: 0.5rem;
   }
 }
+
+/* NEWS TOGGLE */
+.news-hidden {
+  display: none;
+}
+
+.see-more-btn-news {
+  display: inline-block;
+  cursor: pointer;
+  color: #6086e7;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+  user-select: none;
+  margin-top: 0.5rem;
+}
+
+.see-more-btn-news:hover {
+  color: #f09228;
+}
+
+/* PAPER TL;DR */
+.tldr {
+  font-size: 13px;
+  font-style: italic;
+  color: rgb(190, 180, 180);
+}
