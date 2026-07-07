@@ -230,6 +230,27 @@
 
 /* Responsive styles */
 @media (max-width: 768px) {
+  .intro-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .intro-text,
+  .intro-photo {
+    display: block;
+    width: 100% !important;
+  }
+
+  .intro-photo {
+    order: -1;
+  }
+
+  .intro-photo img {
+    max-width: 50% !important;
+    margin: 0 auto 10px auto;
+    top: 0 !important;
+  }
+
   body,
   td,
   th,
@@ -300,11 +321,4 @@
 
 .see-more-btn-news:hover {
   color: #f09228;
-}
-
-/* PAPER TL;DR */
-.tldr {
-  font-size: 13px;
-  font-style: italic;
-  color: rgb(190, 180, 180);
 }

@@ -4,7 +4,7 @@
   <meta name="author" content="Murat Onur Yildirim">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <link rel="icon" type="image/webp" href="imgs/profile.webp">
+  <link rel="icon" type="image/webp" href="imgs/moyildirim.webp">
 </head>
 
 <body style="background-color: rgb(222, 222, 222);">
@@ -13,13 +13,18 @@
       <td style="padding:0px">
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr style="padding:0px">
-                <td style="padding:2.5%;width:70%;vertical-align:middle">
-                    <p style="text-align:center">
+                <td colspan="2" style="padding:2% 3% 0% 3%;text-align:center">
                     <name>Murat Onur Yildirim</name>
-                    </p>
-                    <p>Hi, I am a PhD candidate in the <a href="https://amore-labs.github.io/website/" target="_blank">AMOR/e lab</a> under the supervision of 
-                    <a href="https://joaquinvanschoren.github.io/home/" target="_blank">Joaquin Vanschoren</a> 
-                    at the Mathematics and Computer Science department in <a href="https://www.tue.nl/en/" target="_blank">TU Eindhoven.</a> </p>
+                </td>
+            </tr>
+            <tr style="padding:0px">
+                <td colspan="2" style="padding:1% 3% 0% 3%">
+                    <p>Hi! I am a Doctoral Researcher in the <a href="https://amore-labs.github.io/website/" target="_blank">AMOR/e lab</a> at the Data and AI Cluster of <a href="https://www.tue.nl/en/" target="_blank">TU Eindhoven</a> under the supervision of
+                    <a href="https://joaquinvanschoren.github.io/home/" target="_blank">Joaquin Vanschoren.</a></p>
+                </td>
+            </tr>
+            <tr class="intro-row" style="padding:0px">
+                <td class="intro-text" style="padding:0% 3% 3% 3%;width:65%;vertical-align:middle">
                     <p>My research focuses on continual adaptation across the machine learning lifecycle. I develop neuroscience-inspired methods for enabling models to acquire, retain, and update knowledge under non-stationary environments, with applications spanning continual pre-training, parameter-efficient post-training, and large-scale foundation model adaptation.
                     </p>
 
@@ -28,12 +33,12 @@
                         <a style="font-size: 0.78rem;" href="https://scholar.google.com/citations?user=3NAjgx0AAAAJ&hl=en" target="_blank">Scholar</a> &nbsp-&nbsp
                         <a style="font-size: 0.78rem;" href="https://github.com/muratonuryildirim" target="_blank">Github</a> &nbsp-&nbsp
                         <a style="font-size: 0.78rem;" href="https://linkedin.com/in/muratonuryildirim" target="_blank">In</a> &nbsp-&nbsp
-                        <a style="font-size: 0.78rem;" href="">CV</a> 
+                        <a style="font-size: 0.78rem;" href="MOYCV.pdf" target="_blank">CV</a> 
                     </p>
                 </td>
                 
-                <td style="padding:0%;">
-                    <img style="width:100%;max-width:100%;border-radius:2rem;box-shadow: 0 0 8px rgba(235, 184, 97, 0.3);" src="imgs/profile.webp" alt="Murat Onur Yildirim">
+                <td class="intro-photo" style="padding:0%;vertical-align:middle">
+                    <img style="display:block;position:relative;top:-10px;width:100%;max-width:100%;border-radius:2rem;box-shadow: 0 0 10px rgba(150, 128, 103, 0.706);" src="imgs/moyildirim.webp" alt="Murat Onur Yildirim">
                 </td>
             </tr>
         </tbody></table>
@@ -75,7 +80,6 @@
                         <paper>Unlocking [CLS] Features for Continual Post-Training.</paper><br>
                         <authors>Murat Onur Yildirim, Elif Ceren Gok Yildirim, Joaquin Vanschoren.</authors><br>
                         <venue>TMLR, 2026 - NeurIPS, 2025 CCFM Workshop.</venue><br>
-                        <span class="tldr">Unlocks the frozen [CLS] token in vision transformers to drive continual post-training — matching fine-tuned accuracy with far fewer learnable parameters.</span><br>
                         <a href="https://openreview.net/forum?id=OWfWyj6krc" target="_blank">paper</a> &nbsp-&nbsp
                         <a href="https://github.com/muratonuryildirim/tosca" target="_blank">github</a> &nbsp-&nbsp
                         <a href="./blogs/tosca.html" target="_blank">blog</a>
@@ -88,7 +92,6 @@
                         <paper>Pruned Adaptation Modules: A Simple yet Strong Baseline for Continual Foundation Models.</paper><br>
                         <authors> Elif Ceren Gok Yildirim, Murat Onur Yildirim, Joaquin Vanschoren.</authors><br>
                         <venue>CPAL, 2026 - NeurIPS, 2025 CCFM Workshop.</venue><br>
-                        <span class="tldr">Prunes adapter modules to a sparse subset after each task — yielding a memory-efficient baseline that is surprisingly hard to beat in continual foundation model settings.</span><br>
                         <a href="https://openreview.net/forum?id=eGofyQoLrr" target="_blank">paper</a> &nbsp-&nbsp
                         <a href="https://github.com/elifcerengokyildirim/pam" target="_blank">github</a> &nbsp-&nbsp
                         <a href="./blogs/pam.html" target="_blank">blog</a>
@@ -101,7 +104,6 @@
                         <paper>Self-Regulated Neurogenesis for Online Data-Incremental Learning.</paper><br>
                         <authors>Murat Onur Yildirim, Elif Ceren Gok Yildirim, Decebal Constantin Mocanu, Joaquin Vanschoren.</authors><br>
                         <venue>CoLLAs, 2025 (oral).</venue><br>
-                        <span class="tldr">Dynamically grows new neurons when needed and prunes redundant ones, letting a network self-regulate its own capacity as new data streams arrive.</span><br>
                         <a href="https://arxiv.org/abs/2403.14684" target="_blank">paper</a> &nbsp-&nbsp
                         <a href="https://github.com/muratonuryildirim/serena" target="_blank">github</a> &nbsp-&nbsp
                         <a href="./blogs/serena.html" target="_blank">blog</a>
@@ -114,7 +116,6 @@
                         <paper>AdaCL: Adaptive Continual Learning.</paper> <br>
                         <authors>Elif Ceren Gok Yildirim, Murat Onur Yildirim, Mert Kilickaya, Joaquin Vanschoren.</authors><br>
                         <venue>ContinualAI, 2024 (oral).</venue><br>
-                        <span class="tldr">Automatically adjusts the stability–plasticity balance across tasks, removing the need to manually tune continual learning hyperparameters for each new dataset.</span><br>
                         <a href="https://arxiv.org/pdf/2303.13113" target="_blank">paper</a> &nbsp-&nbsp
                         <a href="https://github.com/elifcerengokyildirim/AdaCL" target="_blank">github</a> &nbsp-&nbsp
                         <a href="./blogs/adacl.html" target="_blank">blog</a>
@@ -127,7 +128,6 @@
                         <paper>Continual Learning with Dynamic Sparse Training: Exploring Algorithms for Effective Model Updates.</paper><br>
                         <authors>Murat Onur Yildirim, Elif Ceren Gok Yildirim, Ghada Sokar, Decebal Constantin Mocanu, Joaquin Vanschoren.</authors><br>
                         <venue>CPAL, 2024 (oral).</venue><br>
-                        <span class="tldr">Benchmarks dynamic sparse training algorithms for continual learning, identifying which sparsity-based update strategies best retain old knowledge while absorbing new tasks.</span><br>
                         <a href="https://openreview.net/pdf/23f75c8417ddce2867dbb868ec7d7553bfbfef73.pdf" target="_blank">paper</a> &nbsp-&nbsp
                         <a href="https://github.com/muratonuryildirim/CL-with-DST" target="_blank">github</a>
                     </p>
@@ -139,7 +139,6 @@
                     <paper>Automated Machine Learning in Material Discovery of Hole Selective Layers for Perovskite Solar Cells.</paper><br>
                     <authors> Murat Onur Yildirim, Elif Ceren Gok Yildirim, Esin Eren, Peng Huang, Muhammed Haris, Samrana Kazim, Joaquin Vanschoren, Aysegul Uygun Oksuz, Shahzada Ahmad.</authors><br> 
                     <venue>Energy Technology, 2023.</venue><br>
-                        <span class="tldr">Automates the search for high-performing hole-selective layer materials in perovskite solar cells, letting ML rank candidate formulations and cut experimental trial-and-error.</span><br>
                         <a href="https://onlinelibrary.wiley.com/doi/10.1002/ente.202200980" target="_blank">paper</a>
                     </p>
                 </div>
@@ -150,7 +149,6 @@
                         <paper>Predicting Perovskite Bandgap and Solar Cell Performance with Machine Learning.</paper><br>
                         <authors>Elif Ceren Gok, Murat Onur Yildirim, Muhammed Haris, Esin Eren, Meenakshi Pegu, Naveen Harindu Hemasiri, Peng Huang, Samrana Kazim, Aysegul Uygun Oksuz, Shahzada Ahmad.</authors><br>
                         <venue>Solar RRL, 2022.</venue><br>
-                        <span class="tldr">Predicts perovskite bandgap and power conversion efficiency from composition data alone, accelerating candidate screening before lab synthesis.</span><br>
                         <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/solr.202100927" target="_blank">paper</a>
                     </p>
                 </div>
@@ -160,7 +158,6 @@
                         <paper>A Machine Learning Approach for Metal Oxide Based Polymer Composites as Charge Selective Layers in Perovskite Solar Cells.</paper><br>
                         <authors>Murat Onur Yildirim, Elif Ceren Gok, Naveen Harindu Hemasiri, Esin Eren, Samrana Kazim, Aysegul Uygun Oksuz, Shahzada Ahmad.</authors><br>
                         <venue>ChemPlusChem, 2021.</venue><br>
-                        <span class="tldr">Uses ML to identify high-performing metal oxide-polymer blends for charge-selective layers, guiding synthesis toward more efficient perovskite cells.</span><br>
                         <a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cplu.202100132" target="_blank">paper</a>
                     </p>
                 </div>
@@ -170,7 +167,6 @@
                         <paper>Comparison of Machine Learning Models on Performance of Single-and Dual-Type Electrochromic Devices.</paper><br>
                         <authors>Elif Ceren Gok, Murat Onur Yildirim, Esin Eren, Aysegul Uygun Oksuz.</authors><br>
                         <venue>ACS Omega, 2020.</venue><br>
-                        <span class="tldr">Benchmarks ML models on predicting coloration efficiency and switching speed of electrochromic devices, establishing best-performing algorithms for device design.</span><br>
                         <a href="https://pubs.acs.org/doi/pdf/10.1021/acsomega.0c03048" target="_blank">paper</a>
                     </p>
                 </div>
@@ -195,7 +191,7 @@
                     <img src="imgs/supervision/danushkumar.webp" alt="Student Image 4">
                     <p>
                     Danushkumar Venkadesh<br>
-                    <paper> Clover: Revisit-Aware Benchmark Suite for Continual Post-Training — <venue> 2026.</venue></paper><br>
+                    <paper> Clover: Revisit-Aware Benchmark Suite for Continual Post-Training of Foundation Models — <venue> 2026 (ongoing).</venue></paper><br>
                     <a href="#">paper</a>
                     </p>
                 </div>
