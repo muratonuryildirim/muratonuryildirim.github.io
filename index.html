@@ -48,6 +48,7 @@
             <td style="padding:10px;width:100%;vertical-align:middle">
               <h1>News</h1>
               <ul style="list-style-type:none;margin:0;padding:0;">
+                <li style="margin-bottom: 1rem;"><b>06/2026</b>, "Coresets are more than replay: a data-centric view of continual learning" has been published in the <b>Neural Computing and Applications!</b></li>
                 <li style="margin-bottom: 1rem;"><b>02/2026</b>, "Automated Machine Learning for Unsupervised Tabular Tasks" has been accepted to <b>MLJ!</b></li>
                 <li style="margin-bottom: 1rem;"><b>02/2026</b>, "Unlocking [CLS] Features for Continual Post-Training" has been accepted to <b>TMLR!</b></li>
                 <li style="margin-bottom: 1rem;"><b>01/2026</b>, "Pruned Adaptation Modules: A Simple yet Strong Baseline for Continual Foundation Models" has been accepted to <b>CPAL!</b></li>
@@ -74,6 +75,17 @@
             <tr>
             <td style="padding:10px;width:100%;vertical-align:middle">
               <h1>Research</h1>
+                <div class="publication-item show">
+                    <img src="imgs/pubs/datadielcl.webp" alt="Publication Image 9">
+                    <p>
+                        <paper>Coresets Are More Than Replay: A Data-Centric View of Continual Learning.</paper><br>
+                        <authors>Elif Ceren Gok Yildirim, Murat Onur Yildirim, Joaquin Vanschoren.</authors><br>
+                        <venue>Neural Computing and Applications, 2026.</venue><br>
+                        <a href="https://link.springer.com/article/10.1007/s00521-026-12273-y" target="_blank">paper</a> &nbsp-&nbsp
+                        <a href="https://github.com/ElifCerenGokYildirim/Coreset-CL" target="_blank">github</a>
+                    </p>
+                </div>
+
                 <div class="publication-item show">
                     <img src="imgs/pubs/tosca.webp" alt="Publication Image 8">
                     <p>
@@ -252,7 +264,7 @@
       const isExpanded = seeMoreBtn.textContent === 'See less';
 
       publications.forEach((pub, index) => {
-        if (index > 3) {
+        if (index > 4) {
           pub.classList.toggle('show');
         }
       });
