@@ -65,15 +65,15 @@ header{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
   mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,#000 55%,transparent 100%);
 }
 .hero{position:relative;padding-top:72px;padding-bottom:56px}
-.hero-top{display:flex;gap:32px;align-items:center}
+.hero-top{display:flex;gap:36px;align-items:center}
 .hero-top .hero-id{min-width:0;flex:1}
-.avatar{width:148px;height:148px;border-radius:50%;object-fit:cover;border:2px solid var(--line);flex-shrink:0;background:var(--tint)}
-.avatar-fallback{width:148px;height:148px;border-radius:50%;background:var(--tint);color:var(--accent-ink);display:none;align-items:center;justify-content:center;font-family:"Fraunces",serif;font-size:46px;font-weight:600;flex-shrink:0}
+.avatar{width:200px;height:200px;border-radius:50%;object-fit:cover;border:2px solid var(--line);flex-shrink:0;background:var(--tint)}
+.avatar-fallback{width:200px;height:200px;border-radius:50%;background:var(--tint);color:var(--accent-ink);display:none;align-items:center;justify-content:center;font-family:"Fraunces",serif;font-size:62px;font-weight:600;flex-shrink:0}
 h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(34px,6vw,48px);line-height:1.1;letter-spacing:-.01em}
 .role{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--muted);margin-top:10px}
 .role a{color:var(--muted);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}
 .role a:hover{color:var(--accent)}
-.bio{margin-top:26px;max-width:640px;color:var(--muted);font-size:16.5px}
+.bio{margin-top:26px;color:var(--muted);font-size:16.5px}
 .bio strong{color:var(--ink);font-weight:500}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}
 .chip{font-family:"IBM Plex Mono",monospace;font-size:12px;background:var(--tint);color:var(--accent-ink);padding:4px 12px;border-radius:999px}
@@ -99,10 +99,10 @@ h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(34px,6vw,48px);l
 section{padding:52px 0}
 section + section{border-top:1px solid var(--line)}
 h2{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin-bottom:6px}
-.section-sub{color:var(--muted);font-size:15px;margin-bottom:28px}
+.section-sub{color:var(--muted);font-size:15px;margin-bottom:12px}
 
 /* ---------- news ---------- */
-.news-item{display:flex;gap:18px;padding:9px 0;font-size:15px}
+.news-item{display:flex;gap:20px;padding:5px 0;font-size:15px}
 .news-item time{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--faint);white-space:nowrap;padding-top:2px;min-width:62px}
 .news-item p{color:var(--muted)}
 .news-item p b{color:var(--ink);font-weight:600}
@@ -146,15 +146,17 @@ h2{font-family:"Fraunces",serif;font-weight:600;font-size:26px;margin-bottom:6px
 
 /* ---------- supervision ---------- */
 .student{
-  display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;
-  column-gap:16px;row-gap:2px;align-items:center;
-  padding:14px 0;border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto auto;
+  column-gap:16px;row-gap:4px;align-items:center;
+  padding:16px 0;border-bottom:1px solid var(--line);
 }
 .student:last-child{border-bottom:none}
-.student-avatar{width:54px;height:54px;border-radius:50%;object-fit:cover;border:1px solid var(--line);flex-shrink:0;background:var(--tint);grid-row:1/3}
+.student-avatar{width:62px;height:62px;border-radius:50%;object-fit:cover;border:1px solid var(--line);flex-shrink:0;background:var(--tint);grid-row:1/4}
 .student .name{font-weight:600;font-size:15.5px;grid-column:2}
 .student .thesis{color:var(--muted);font-size:14.5px;grid-column:2}
-.student .thesis em{font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--faint)}
+.student .meta{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--faint);grid-column:2}
+.student .meta a{color:var(--faint);text-decoration:underline;text-underline-offset:2px}
+.student .meta a:hover{color:var(--accent)}
 
 footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--faint);font-size:13.5px;font-family:"IBM Plex Mono",monospace}
 
@@ -168,9 +170,9 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--faint);f
 @media (max-width:640px){
   section{padding:44px 0}
   .hero{padding-top:52px;padding-bottom:40px}
-  .hero-top{flex-direction:column;align-items:flex-start;gap:18px}
-  .avatar,.avatar-fallback{width:112px;height:112px}
-  .avatar-fallback{font-size:36px}
+  .hero-top{flex-direction:column;align-items:center;text-align:center;gap:18px}
+  .avatar,.avatar-fallback{width:170px;height:170px}
+  .avatar-fallback{font-size:44px}
   h1{font-size:clamp(30px,8.5vw,40px)}
   .bio{font-size:15.5px}
   .news-item{flex-direction:column;gap:2px;padding:10px 0}
@@ -187,7 +189,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--faint);f
   .chip{font-size:11px;padding:3px 10px}
   .btn{padding:8px 13px;font-size:13px;gap:5px}
   .pub{padding:16px}
-  .student-avatar{width:46px;height:46px}
+  .student-avatar{width:52px;height:52px}
 }
 /* Touch devices: no hover-lift, larger hit areas */
 @media (hover:none){
@@ -215,7 +217,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--faint);f
     <div id="avatar-fb" class="avatar-fallback" aria-hidden="true">MY</div>
     <div class="hero-id">
       <h1>Murat Onur Yildirim</h1>
-      <p class="role">Doctoral researcher · <a href="https://amore-labs.github.io/website/">AMOR/e Lab</a> · <a href="https://www.tue.nl/en/">TU Eindhoven</a></p>
+      <p class="role">Doctoral Researcher · <a href="https://amore-labs.github.io/website/">AMOR/e Lab</a> · <a href="https://www.tue.nl/en/">TU Eindhoven</a></p>
     </div>
   </div>
   <p class="bio">I work on <strong>continual adaptation across the machine learning lifecycle</strong>, under the supervision of <a href="https://joaquinvanschoren.github.io/home/">Joaquin Vanschoren</a>. I develop neuroscience-inspired methods that let models acquire, retain, and update knowledge in non-stationary environments; spanning continual pre-training, parameter-efficient post-training, and large-scale foundation model adaptation.</p>
@@ -335,7 +337,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--faint);f
   <article class="pub">
     <img class="pub-thumb" src="imgs/pubs/automl-chem.webp" alt="" loading="lazy" onerror="this.remove()">
     <div class="pub-body">
-    <div class="badges"><span class="badge alt">Energy Technology 2023</span></div>
+    <div class="badges"><span class="badge">Energy Technology 2023</span></div>
     <h3>Automated machine learning in material discovery of hole selective layers for perovskite solar cells</h3>
     <p class="authors"><b>Murat Onur Yildirim</b>, Elif Ceren Gok Yildirim, Esin Eren, Peng Huang, Muhammed Haris, Samrana Kazim, Joaquin Vanschoren, Aysegul Uygun Oksuz, Shahzada Ahmad</p>
     <div class="pub-links"><a href="https://onlinelibrary.wiley.com/doi/10.1002/ente.202200980">paper</a></div>
@@ -345,7 +347,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--faint);f
   <article class="pub">
     <img class="pub-thumb" src="imgs/pubs/solar-rrl.webp" alt="" loading="lazy" onerror="this.remove()">
     <div class="pub-body">
-    <div class="badges"><span class="badge alt">Solar RRL 2022</span></div>
+    <div class="badges"><span class="badge">Solar RRL 2022</span></div>
     <h3>Predicting perovskite bandgap and solar cell performance with machine learning</h3>
     <p class="authors">Elif Ceren Gok, <b>Murat Onur Yildirim</b>, Muhammed Haris, Esin Eren, Meenakshi Pegu, Naveen Harindu Hemasiri, Peng Huang, Samrana Kazim, Aysegul Uygun Oksuz, Shahzada Ahmad</p>
     <div class="pub-links"><a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/solr.202100927">paper</a></div>
@@ -355,7 +357,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--faint);f
   <article class="pub">
     <img class="pub-thumb" src="imgs/pubs/chemplus.webp" alt="" loading="lazy" onerror="this.remove()">
     <div class="pub-body">
-    <div class="badges"><span class="badge alt">ChemPlusChem 2021</span></div>
+    <div class="badges"><span class="badge">ChemPlusChem 2021</span></div>
     <h3>A machine learning approach for metal oxide based polymer composites as charge selective layers in perovskite solar cells</h3>
     <p class="authors"><b>Murat Onur Yildirim</b>, Elif Ceren Gok, Naveen Harindu Hemasiri, Esin Eren, Samrana Kazim, Aysegul Uygun Oksuz, Shahzada Ahmad</p>
     <div class="pub-links"><a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cplu.202100132">paper</a></div>
@@ -365,7 +367,7 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--faint);f
   <article class="pub">
     <img class="pub-thumb" src="imgs/pubs/acs-ecd.webp" alt="" loading="lazy" onerror="this.remove()">
     <div class="pub-body">
-    <div class="badges"><span class="badge alt">ACS Omega 2020</span></div>
+    <div class="badges"><span class="badge">ACS Omega 2020</span></div>
     <h3>Comparison of machine learning models on performance of single- and dual-type electrochromic devices</h3>
     <p class="authors">Elif Ceren Gok, <b>Murat Onur Yildirim</b>, Esin Eren, Aysegul Uygun Oksuz</p>
     <div class="pub-links"><a href="https://pubs.acs.org/doi/pdf/10.1021/acsomega.0c03048">paper</a></div>
@@ -386,22 +388,26 @@ footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--faint);f
   <div class="student">
     <img class="student-avatar" src="imgs/supervision/danushkumar.webp" alt="Danushkumar Venkadesh" loading="lazy" onerror="this.remove()">
     <span class="name">Danushkumar Venkadesh</span>
-    <span class="thesis">Clover: revisit-aware benchmark suite for continual post-training of foundation models <em>· 2026, ongoing</em></span>
+    <span class="thesis">Clover: revisit-aware benchmark suite for continual post-training of foundation models</span>
+    <span class="meta">2026, ongoing</span>
   </div>
   <div class="student">
     <img class="student-avatar" src="imgs/supervision/shreya.webp" alt="Shreya Sajid" loading="lazy" onerror="this.remove()">
     <span class="name">Shreya Sajid</span>
-    <span class="thesis">Muting tokens: exploring token sparsification for efficient audio transformers <em>· co-supervised by NXP, 2025</em></span>
+    <span class="thesis">Muting tokens: exploring token sparsification for efficient audio transformers</span>
+    <span class="meta">co-supervised by NXP, 2025 — <a href="https://research.tue.nl/en/studentTheses/muting-tokens/">thesis</a></span>
   </div>
   <div class="student">
     <img class="student-avatar" src="imgs/supervision/athira.webp" alt="Athira Kulampurath" loading="lazy" onerror="this.remove()">
     <span class="name">Athira Kulampurath</span>
-    <span class="thesis">Reliability and uncertainty in foundation model-based class-incremental learning <em>· 2025</em></span>
+    <span class="thesis">Reliability and uncertainty in foundation model-based class-incremental learning</span>
+    <span class="meta">2025 — <a href="https://pure.tue.nl/ws/portalfiles/portal/381706271/Kulampurath.pdf">thesis</a></span>
   </div>
   <div class="student">
     <img class="student-avatar" src="imgs/supervision/coen.webp" alt="Coen Schouten" loading="lazy" onerror="this.remove()">
     <span class="name">Coen Schouten</span>
-    <span class="thesis">On-the-fly curriculum design for online class-incremental learning <em>· cum laude, 2024</em> — <a href="https://pure.tue.nl/ws/portalfiles/portal/352415819/Schouten_C.pdf">thesis</a></span>
+    <span class="thesis">On-the-fly curriculum design for online class-incremental learning</span>
+    <span class="meta">cum laude, 2024 — <a href="https://pure.tue.nl/ws/portalfiles/portal/352415819/Schouten_C.pdf">thesis</a></span>
   </div>
 </div>
 </section>
